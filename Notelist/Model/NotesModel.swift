@@ -8,12 +8,6 @@
 import Foundation
 import RealmSwift
 
-struct NodeModel{
-    var id: String
-    var title:String
-    var content: String
-}
-
 class NodeModelRealm: Object {
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var title: String = ""
