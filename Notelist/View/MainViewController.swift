@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if viewModel == nil {
-                   viewModel = MainViewModel(delegate: self)  // Khởi tạo viewModel
+            viewModel = MainViewModel(delegate: self)  // Khởi tạo viewModel
         }
         setupCollectionView()
         setupButtonAdd()

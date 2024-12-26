@@ -18,6 +18,8 @@ class MainViewModel {
     // MARK: - Initializer
     init(delegate: MainViewModelDelegate) {
         self.delegate = delegate
+        loadNodes()
+        
     }
 
     // MARK: - Methods

@@ -10,14 +10,12 @@ import UIKit
 import CHTCollectionViewWaterfallLayout
 extension MainViewController: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           // return nodes.count
             return viewModel.nodes.count
         }
 
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoteCollectionViewCell", for: indexPath) as! NoteCollectionViewCell
             cell.layer.cornerRadius = 8
-            //let node = nodes[indexPath.row]
             let node = viewModel.nodes[indexPath.row]
             cell.setup(with: node)
             return cell
