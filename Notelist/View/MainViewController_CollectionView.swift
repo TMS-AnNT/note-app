@@ -23,43 +23,46 @@ extension MainViewController: UICollectionViewDataSource {
     }
 
 extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let width = collectionView.frame.width / 2 - 10
-            let content = nodes[indexPath.row].content
-            let title = nodes[indexPath.row].title
-            let contentHeight = heightForText(content, width: width)
-            let titleHeight = heightForText(title, width: width)
-            let totalHeight = contentHeight + titleHeight + 50
-            return CGSize(width: width, height: totalHeight)
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 2 - 10
+        let content = viewModel.nodes[indexPath.row].content
+        let title = viewModel.nodes[indexPath.row].title
 
-        private func heightForText(_ text: String, width: CGFloat) -> CGFloat {
-            let font = UIFont.systemFont(ofSize: 16)
-            let attributes = [NSAttributedString.Key.font: font]
-            let attributedText = NSAttributedString(string: text, attributes: attributes)
-            let boundingBox = attributedText.boundingRect(
-                with: CGSize(width: width, height: .greatestFiniteMagnitude),
-                options: .usesLineFragmentOrigin,
-                context: nil
-            )
-            return ceil(boundingBox.height)
-        }
+        // Kiểm tra và đảm bảo rằng chiều cao tính toán hợp lệ, tránh chiều cao vô hạn.
+        let contentHeight = heightForText(content, width: width)
+        let titleHeight = heightForText(title, width: width)
+        let totalHeight = contentHeight + titleHeight + 50
+
+        // Trả về kích thước hợp lệ
+        return CGSize(width: width, height: totalHeight)
     }
+
+    private func heightForText(_ text: String, width: CGFloat) -> CGFloat {
+        let font = UIFont.systemFont(ofSize: 16)
+        let attributes = [NSAttributedString.Key.font: font]
+        let attributedText = NSAttributedString(string: text, attributes: attributes)
+        let boundingBox = attributedText.boundingRect(
+            with: CGSize(width: width, height: .greatestFiniteMagnitude),
+            options: .usesLineFragmentOrigin,
+            context: nil
+        )
+        
+        // Tránh trả về chiều cao vô hạn
+        return ceil(boundingBox.height)
+    }
+}
 
 extension MainViewController: UICollectionViewDelegate {
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let selectedNode = nodes[indexPath.row]
+            let selectedNode = viewModel.nodes[indexPath.row]
             
             // Khởi tạo AddNoteViewController
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
-                // Chuyển dữ liệu cho AddNoteViewController
                 addNoteVC.existingNote = selectedNode
-                addNoteVC.modalPresentationStyle = .fullScreen  // Nếu bạn muốn hiển thị full screen
-                
-      
+                addNoteVC.modalPresentationStyle = .fullScreen
                 addNoteVC.onUpdateNote = { [weak self] updatedNode in
-                    self?.viewModel.updateNode(updatedNode) // Cập nhật dữ liệu
+                    self?.viewModel.updateNode(updatedNode)
                 }
 
                 navigationController?.pushViewController(addNoteVC, animated: true)

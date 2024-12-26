@@ -13,6 +13,8 @@
 		77655BEB2D190A88001798F3 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77655BEA2D190A88001798F3 /* NotesModel.swift */; };
 		77859BCE2D1C650300FF6A98 /* MainViewController_CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77859BCD2D1C650300FF6A98 /* MainViewController_CollectionView.swift */; };
 		77859BD12D1C6E7A00FF6A98 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77859BD02D1C6E7A00FF6A98 /* MainViewModel.swift */; };
+		77BE0EF32D1D2DC000D03A68 /* MainViewController_SearchHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE0EF22D1D2DC000D03A68 /* MainViewController_SearchHandling.swift */; };
+		77BE0EF52D1D485200D03A68 /* UIColor_Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE0EF42D1D485200D03A68 /* UIColor_Hex.swift */; };
 		77CA0D2D2D19BF02000E1F4E /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 77CA0D2C2D19BF02000E1F4E /* CHTCollectionViewWaterfallLayout */; };
 		77D3BD8C2D1968A9001BB4C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D3BD8B2D1968A9001BB4C4 /* MainViewController.swift */; };
 		77D3BD8E2D19AE06001BB4C4 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D3BD8D2D19AE06001BB4C4 /* NoteCollectionViewCell.swift */; };
@@ -50,6 +52,8 @@
 		77655BEA2D190A88001798F3 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
 		77859BCD2D1C650300FF6A98 /* MainViewController_CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController_CollectionView.swift; sourceTree = "<group>"; };
 		77859BD02D1C6E7A00FF6A98 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		77BE0EF22D1D2DC000D03A68 /* MainViewController_SearchHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController_SearchHandling.swift; sourceTree = "<group>"; };
+		77BE0EF42D1D485200D03A68 /* UIColor_Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Hex.swift; sourceTree = "<group>"; };
 		77D3BD8B2D1968A9001BB4C4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		77D3BD8D2D19AE06001BB4C4 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		77E816952D18F74700A025CD /* Notelist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notelist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,7 @@
 				7706AE1D2D1A5CE40067B118 /* AddNoteViewController.swift */,
 				77D3BD8B2D1968A9001BB4C4 /* MainViewController.swift */,
 				77859BCD2D1C650300FF6A98 /* MainViewController_CollectionView.swift */,
+				77BE0EF22D1D2DC000D03A68 /* MainViewController_SearchHandling.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,6 +143,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		77BE0EF72D1D487100D03A68 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				77BE0EF42D1D485200D03A68 /* UIColor_Hex.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		77E8168C2D18F74700A025CD = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +174,7 @@
 		77E816972D18F74700A025CD /* Notelist */ = {
 			isa = PBXGroup;
 			children = (
+				77BE0EF72D1D487100D03A68 /* Utilities */,
 				77859BCF2D1C6E4B00FF6A98 /* ViewModel */,
 				77859BCC2D1C626100FF6A98 /* Manager */,
 				7706AE1F2D1A5EC90067B118 /* View */,
@@ -338,7 +352,9 @@
 				77859BCE2D1C650300FF6A98 /* MainViewController_CollectionView.swift in Sources */,
 				77859BD12D1C6E7A00FF6A98 /* MainViewModel.swift in Sources */,
 				77D3BD8C2D1968A9001BB4C4 /* MainViewController.swift in Sources */,
+				77BE0EF32D1D2DC000D03A68 /* MainViewController_SearchHandling.swift in Sources */,
 				7706AE252D1A6F960067B118 /* NoteManager.swift in Sources */,
+				77BE0EF52D1D485200D03A68 /* UIColor_Hex.swift in Sources */,
 				77655BEB2D190A88001798F3 /* NotesModel.swift in Sources */,
 				77D3BD8E2D19AE06001BB4C4 /* NoteCollectionViewCell.swift in Sources */,
 			);

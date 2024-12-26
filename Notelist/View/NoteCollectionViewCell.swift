@@ -17,8 +17,10 @@ class NoteCollectionViewCell: UICollectionViewCell {
         // Cho phép ContentLabel hiển thị nhiều dòng
         ContentLabel.numberOfLines = 8
         titleLabel.numberOfLines = 0
-        // Thử thêm màu nền để dễ debug
-        ContentLabel.backgroundColor = .white
-        self.backgroundColor = .lightGray
+      
+        let color = UIColor(hex: note.color)
+        self.backgroundColor = .blue
+        self.contentView.backgroundColor = color
+
        }
 }

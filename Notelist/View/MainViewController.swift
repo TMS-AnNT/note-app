@@ -9,35 +9,63 @@ import UIKit
 
 class MainViewController: UIViewController {
     // MARK: - Properties
+    @IBOutlet weak var SearchBarBtn: UIButton!
     var nodes: [NodeModelRealm] = []
     // MARK: - Properties
     internal var viewModel: MainViewModel!
     internal var nodeManager = NodeManager()
     
+    internal var searchTextField: UITextField!
+    internal var blurEffectView: UIVisualEffectView!
     // MARK: - Outlets
     @IBOutlet weak var ButtonAdd: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     // MARK: - Lifecycle
+    @IBAction func btnSearchAction(_ sender: UIButton) {
+        
+        // Toggle searchTextField visibility and blur effect
+        if searchTextField.isHidden {
+            searchTextField.isHidden = false
+            UIView.animate(withDuration: 0.3) {
+                self.blurEffectView.alpha = 0.5
+            }
+        } else {
+            searchTextField.isHidden = true
+            UIView.animate(withDuration: 0.3) {
+                self.blurEffectView.alpha = 0.0
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if viewModel == nil {
             viewModel = MainViewModel(delegate: self)  // Khởi tạo viewModel
         }
+    
+        configureUI()
         setupCollectionView()
-        setupButtonAdd()
-        viewModel.loadNodes()
-        
+        addTapGestureToDismissSearch()
+        searchTextField.delegate = self
+
     }
+    // MARK: - UI Setup
+       private func configureUI() {
+           setupButtonAdd()
+           setupCollectionView()
+           setupSearchTextField()
+           setupBlurEffectView()
+       }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-
+    
     // MARK: - Setup Methods
     private func setupButtonAdd(){
         let size = min(ButtonAdd.frame.width, ButtonAdd.frame.height)
@@ -57,36 +85,45 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-        
+    
+    // Add tap gesture recognizer to dismiss search when tapping outside
     @IBAction func BtnAdd(_ sender: Any) {
-      //  performSegue(withIdentifier: "ScreenAddNote", sender: self)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
-              print("Navigating to AddNoteViewController")
-              addNoteVC.onAddNote = { [weak self] title, content in
-                  self?.viewModel.addNode(title: title, content: content) // Thêm ghi chú mới
-              }
-              addNoteVC.onUpdateNote = { [weak self] updatedNode in
-                  self?.viewModel.updateNode(updatedNode) // Cập nhật ghi chú
-              }
-              navigationController?.pushViewController(addNoteVC, animated: true)
-          } else {
-              print("Failed to instantiate AddNoteViewController")
-          }
+        if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
+            print("Navigating to AddNoteViewController")
+            addNoteVC.onAddNote = { [weak self] title, content , color in
+                self?.viewModel.addNode(title: title, content: content,color: color) // Thêm ghi chú mới
+            }
+            addNoteVC.onUpdateNote = { [weak self] updatedNode in
+                self?.viewModel.updateNode(updatedNode) // Cập nhật ghi chú
+            }
+            navigationController?.pushViewController(addNoteVC, animated: true)
+        } else {
+            print("Failed to instantiate AddNoteViewController")
+        }
     }
-    // MARK: - Data Handling
-    private func loadNodesFromDatabase() {
-        nodes = Array(nodeManager.getAllNodes())
-        collectionView.reloadData()
-    }
-    
-    
 }
 
 extension MainViewController: MainViewModelDelegate {
     func didUpdateNodes() {
-        loadNodesFromDatabase()  // Tải lại dữ liệu từ viewModel
+       // Tải lại dữ liệu từ viewModel
         collectionView.reloadData()  // Làm mới giao diện
     }
 }
 
+
+extension MainViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        
+        viewModel.performSearch(query: updatedText) // Gọi ViewModel tìm kiếm
+        return true
+
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // Đóng bàn phím khi nhấn "Return"
+        return true
+    }
+}

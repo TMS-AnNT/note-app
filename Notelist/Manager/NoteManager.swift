@@ -14,10 +14,12 @@ class NodeManager {
     private let realm = try! Realm()
 
     // MARK: - Create Node
-    func createNode(title: String, content: String) -> NodeModelRealm {
+    func createNode(title: String, content: String,color: String? = nil) -> NodeModelRealm {
         let node = NodeModelRealm()
         node.title = title
         node.content = content
+        
+        node.color = color ?? "#000000"
         
         // Add to Realm
         do {
@@ -43,7 +45,7 @@ class NodeManager {
     }
 
     // MARK: - Update Node
-    func updateNode(id: String, newTitle: String, newContent: String) {
+    func updateNode(id: String, newTitle: String, newContent: String,color: String ) {
         guard let node = getNodeById(id: id) else {
             print("Node with ID \(id) not found")
             return
@@ -53,6 +55,7 @@ class NodeManager {
             try realm.write {
                 node.title = newTitle
                 node.content = newContent
+                node.color = color
             }
             print("Node updated successfully")
         } catch {

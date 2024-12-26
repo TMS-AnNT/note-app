@@ -10,11 +10,12 @@ import RealmSwift
 
 class AddNoteViewController: UIViewController {
 
+    @IBOutlet weak var ColorWell: UIColorWell!
     @IBOutlet weak var TxtContent: UITextView!
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var BtnAdd: UIButton!
     @IBOutlet weak var UIImageBack: UIImageView!
-    var onAddNote: ((String , String) -> Void)?
+    var onAddNote: ((String , String,String) -> Void)?
     var existingNote: NodeModelRealm?
     var onUpdateNote: ((_ updatedNote: NodeModelRealm) -> Void)?
     
@@ -38,6 +39,7 @@ class AddNoteViewController: UIViewController {
             if let existingNote = existingNote {
                 txtTitle.text = existingNote.title
                 TxtContent.text = existingNote.content
+                ColorWell.selectedColor = UIColor(named: existingNote.color)
                 BtnAdd.setTitle("Update", for: .normal) // Đổi tên nút để phù hợp với chế độ chỉnh sửa
             } else {
                 BtnAdd.setTitle("Add", for: .normal)
@@ -50,8 +52,8 @@ class AddNoteViewController: UIViewController {
                   let content = TxtContent.text, !content.isEmpty else {
                 return
             }
-            
-        
+            let selectedColor = ColorWell.selectedColor ?? UIColor.blue // Default to gray if no color is selected
+            print("this is the color\(selectedColor.toHex())")
            if let existingNote = existingNote {
                // Nếu đang chỉnh sửa ghi chú
                do {
@@ -59,6 +61,7 @@ class AddNoteViewController: UIViewController {
                    try realm.write {
                        existingNote.title = title
                        existingNote.content = content
+                       existingNote.color = selectedColor.toHex()
                    }
                    // Gọi closure để cập nhật giao diện
                    onUpdateNote?(existingNote)
@@ -67,7 +70,7 @@ class AddNoteViewController: UIViewController {
                }
            } else {
                // Nếu thêm mới ghi chú
-               onAddNote?(title, content)
+               onAddNote?(title, content,selectedColor.toHex())
            }
         navigationController?.popViewController(animated: true)
     }
