@@ -49,7 +49,22 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
 extension MainViewController: UICollectionViewDelegate {
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let selectedNode = nodes[indexPath.row]
-            performSegue(withIdentifier: "ScreenAddNote", sender: selectedNode)
+            
+            // Khởi tạo AddNoteViewController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
+                // Chuyển dữ liệu cho AddNoteViewController
+                addNoteVC.existingNote = selectedNode
+                addNoteVC.modalPresentationStyle = .fullScreen  // Nếu bạn muốn hiển thị full screen
+                
+      
+                addNoteVC.onUpdateNote = { [weak self] updatedNode in
+                    self?.viewModel.updateNode(updatedNode) // Cập nhật dữ liệu
+                }
+
+                navigationController?.pushViewController(addNoteVC, animated: true)
+            }
+
         }
 
         func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {

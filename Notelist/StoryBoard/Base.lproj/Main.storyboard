@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NAd-5h-H76">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H5L-yz-pmf">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -301,7 +301,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTi-X8-C2N">
-                                <rect key="frame" x="20" y="69" width="353" height="30"/>
+                                <rect key="frame" x="20" y="113" width="353" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s" translatesAutoresizingMaskIntoConstraints="NO" id="6PR-wd-4ny">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
@@ -325,7 +325,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GSH-v3-M8d">
-                                <rect key="frame" x="10" y="109" width="373" height="709"/>
+                                <rect key="frame" x="10" y="153" width="373" height="665"/>
                                 <color key="backgroundColor" red="0.84964883209999997" green="0.81343230300000002" blue="0.72667405210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dyc-ba-YYv">
                                     <size key="itemSize" width="207" height="166"/>
@@ -416,6 +416,7 @@
                             <constraint firstItem="GSH-v3-M8d" firstAttribute="top" secondItem="mTi-X8-C2N" secondAttribute="bottom" constant="10" id="rnz-oI-xq2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Cpf-KK-UqF"/>
                     <connections>
                         <outlet property="ButtonAdd" destination="wOk-ur-GIn" id="cN9-84-I9k"/>
                         <outlet property="collectionView" destination="GSH-v3-M8d" id="Pvn-SC-nHo"/>
@@ -424,18 +425,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7i6-qi-1Bx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287.78625954198475" y="-650"/>
+            <point key="canvasLocation" x="1214.5038167938931" y="-650"/>
         </scene>
         <!--Add Note View Controller-->
         <scene sceneID="caN-nS-mKE">
             <objects>
                 <viewController storyboardIdentifier="AddNoteViewController" id="MN3-G4-Xhe" customClass="AddNoteViewController" customModule="Notelist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HkL-vs-w1T">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKj-jh-Jsl">
-                                <rect key="frame" x="20" y="9.9999999999999982" width="353" height="25.333333333333329"/>
+                                <rect key="frame" x="20" y="113" width="353" height="25.333333333333343"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector (3)" translatesAutoresizingMaskIntoConstraints="NO" id="uoN-Ml-DeN">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="25.333333333333332"/>
@@ -458,7 +459,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JIG-Vk-NaT">
-                                <rect key="frame" x="20" y="122.33333333333331" width="353" height="578.66666666666674"/>
+                                <rect key="frame" x="20" y="225.33333333333334" width="353" height="451.66666666666663"/>
                                 <color key="backgroundColor" red="0.84964883209999997" green="0.81343230300000002" blue="0.72667405210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -466,13 +467,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPe-RW-Lnq">
-                                <rect key="frame" x="20" y="80" width="353" height="34"/>
+                                <rect key="frame" x="20" y="183" width="353" height="34"/>
                                 <color key="backgroundColor" red="0.84964883209999997" green="0.81343230300000002" blue="0.72667405210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-Rj-rIj">
-                                <rect key="frame" x="306" y="767.66666666666663" width="47" height="34.333333333333371"/>
+                                <rect key="frame" x="306" y="743.66666666666663" width="47" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
                                 <connections>
@@ -508,7 +509,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gc-Yh-8mQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183.969465648855" y="-650"/>
+            <point key="canvasLocation" x="2110.6870229007632" y="-650"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Foz-no-GKf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H5L-yz-pmf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vgk-hj-lHl">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NAd-5h-H76" kind="relationship" relationship="rootViewController" id="l5t-af-IGg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Utx-Uu-WCv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287.78625954198475" y="-650"/>
         </scene>
     </scenes>
     <resources>
@@ -524,25 +543,25 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

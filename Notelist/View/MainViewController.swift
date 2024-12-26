@@ -28,6 +28,16 @@ class MainViewController: UIViewController {
         viewModel.loadNodes()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     // MARK: - Setup Methods
     private func setupButtonAdd(){
         let size = min(ButtonAdd.frame.width, ButtonAdd.frame.height)
@@ -47,30 +57,22 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ScreenAddNote",
-           let addNoteVC = segue.destination as? AddNoteViewController {
-               if let selectedNode = sender as? NodeModelRealm {
-                   // Edit Note
-                   addNoteVC.modalPresentationStyle = .fullScreen
-                   addNoteVC.existingNote = selectedNode
-                   addNoteVC.onUpdateNote = { [weak self] updatedNode in
-                       self?.viewModel.updateNode(updatedNode)
-                   }
-               } else {
-                   // Add New Note
-                   addNoteVC.modalPresentationStyle = .fullScreen
-                   addNoteVC.onAddNote = { [weak self] title, content in
-                       self?.viewModel.addNode(title: title, content: content)
-                   }
-               }
-        }
-    }
-    
+        
     @IBAction func BtnAdd(_ sender: Any) {
-        performSegue(withIdentifier: "ScreenAddNote", sender: self)
+      //  performSegue(withIdentifier: "ScreenAddNote", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
+              print("Navigating to AddNoteViewController")
+              addNoteVC.onAddNote = { [weak self] title, content in
+                  self?.viewModel.addNode(title: title, content: content) // Thêm ghi chú mới
+              }
+              addNoteVC.onUpdateNote = { [weak self] updatedNode in
+                  self?.viewModel.updateNode(updatedNode) // Cập nhật ghi chú
+              }
+              navigationController?.pushViewController(addNoteVC, animated: true)
+          } else {
+              print("Failed to instantiate AddNoteViewController")
+          }
     }
     // MARK: - Data Handling
     private func loadNodesFromDatabase() {
@@ -83,7 +85,6 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewModelDelegate {
     func didUpdateNodes() {
-        // Cập nhật dữ liệu khi nodes thay đổi
         loadNodesFromDatabase()  // Tải lại dữ liệu từ viewModel
         collectionView.reloadData()  // Làm mới giao diện
     }

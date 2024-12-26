@@ -17,6 +17,16 @@ class AddNoteViewController: UIViewController {
     var onAddNote: ((String , String) -> Void)?
     var existingNote: NodeModelRealm?
     var onUpdateNote: ((_ updatedNote: NodeModelRealm) -> Void)?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,11 +69,11 @@ class AddNoteViewController: UIViewController {
                // Nếu thêm mới ghi chú
                onAddNote?(title, content)
            }
-           
-            dismiss(animated: true, completion: nil)    }
+        navigationController?.popViewController(animated: true)
+    }
     
     @objc func imageTapped() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
 }
