@@ -49,13 +49,16 @@ class MainViewController: UIViewController {
         setupCollectionView()
         addTapGestureToDismissSearch()
         searchTextField.delegate = self
-        viewModel.$nodes
-                  .sink { [weak self] updatedNodes in
-                      self?.nodes = updatedNodes  // Cập nhật danh sách nodes từ viewModel
-                      self?.collectionView.reloadData()  // Làm mới giao diện
-                  }
-                  .store(in: &cancellables)
+        bindViewModel()
 
+    }
+    private func bindViewModel() {
+        viewModel.$nodes
+            .sink { [weak self] updatedNodes in
+                self?.nodes = updatedNodes  // Cập nhật danh sách nodes từ ViewModel
+                self?.collectionView.reloadData()  // Làm mới giao diện
+            }
+            .store(in: &cancellables)
     }
     // MARK: - UI Setup
        private func configureUI() {
