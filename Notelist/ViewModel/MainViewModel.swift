@@ -5,33 +5,36 @@
 //  Created by cao duc tin  on 25/12/24.
 //
 
-
+import Combine
 
 class MainViewModel {
 
     // MARK: - Properties
     private let nodeManager = NodeManager()
     private weak var delegate: MainViewModelDelegate?
+    
+    @Published var nodes: [NodeModelRealm] = []
+    private var cancellables = Set<AnyCancellable>()
+    
 
-    var nodes: [NodeModelRealm] = []
+//    var nodes: [NodeModelRealm] = []{
+//        didSet{
+//            delegate?.didUpdateNodes()
+//        }
+//    }
     private var allNodes: [NodeModelRealm] = []
     // MARK: - Initializer
-    init(delegate: MainViewModelDelegate) {
-        self.delegate = delegate
+    init(){
         loadNodes()
-        
     }
-
     // MARK: - Methods
     func loadNodes() {
           allNodes = Array(nodeManager.getAllNodes())
           nodes = allNodes
-          delegate?.didUpdateNodes()
       }
     func addNode(title: String, content: String,color: String?) {
         let newNode = nodeManager.createNode(title: title, content: content,color: color ?? "#000000")
         nodes.append(newNode)
-        delegate?.didUpdateNodes()
     }
 
     func updateNode(_ updatedNode: NodeModelRealm) {
@@ -39,7 +42,7 @@ class MainViewModel {
 
         if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
             nodes[index] = updatedNode
-            delegate?.didUpdateNodes()
+           // delegate?.didUpdateNodes()
         }
     }
 
@@ -47,9 +50,7 @@ class MainViewModel {
         let nodeToDelete = nodes[index]
         nodeManager.deleteNode(id: nodeToDelete.id)
         nodes.remove(at: index)
-        delegate?.didUpdateNodes()
-//        nodes = Array(nodeManager.getAllNodes())
-//         delegate?.didUpdateNodes()
+     
     }
     func performSearch(query: String) {
         // Cập nhật lại allNodes sau khi thay đổi dữ liệu
@@ -64,7 +65,7 @@ class MainViewModel {
             }
         }
         
-        delegate?.didUpdateNodes()
+       // delegate?.didUpdateNodes()
     }
 
 

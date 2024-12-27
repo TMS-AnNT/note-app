@@ -7,9 +7,11 @@
 
 import UIKit
 import RealmSwift
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -31,7 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // Initialize Realm
                 _ = try! Realm()
-
+                // Khởi tạo window
+               window = UIWindow(frame: UIScreen.main.bounds)
+               
+               // Thiết lập ViewController đầu tiên
+               let initialViewController = ViewController() // Thay thế ViewController() bằng ViewController bạn muốn
+               window?.rootViewController = initialViewController
+               window?.makeKeyAndVisible()
                 return true
     }
 

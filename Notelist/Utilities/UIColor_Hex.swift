@@ -33,3 +33,18 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
+import UIKit
+
+extension UIView {
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(
+            roundedRect: self.bounds,
+            byRoundingCorners: corners,
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+    }
+}

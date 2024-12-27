@@ -33,7 +33,6 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
         let titleHeight = heightForText(title, width: width)
         let totalHeight = contentHeight + titleHeight + 50
 
-        // Trả về kích thước hợp lệ
         return CGSize(width: width, height: totalHeight)
     }
 
@@ -72,7 +71,6 @@ extension MainViewController: UICollectionViewDelegate {
 
         func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
             let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
-//                self?.deleteNode(at: indexPath)
                 self?.viewModel.deleteNode(at: indexPath.row)
             }
             return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in

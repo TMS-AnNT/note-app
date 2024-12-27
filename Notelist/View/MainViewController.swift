@@ -6,13 +6,14 @@
 //
 import CHTCollectionViewWaterfallLayout
 import UIKit
+import Combine
 
 class MainViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var SearchBarBtn: UIButton!
     var nodes: [NodeModelRealm] = []
     // MARK: - Properties
-    internal var viewModel: MainViewModel!
+    internal var viewModel: MainViewModel = MainViewModel()
     internal var nodeManager = NodeManager()
     
     internal var searchTextField: UITextField!
@@ -20,6 +21,10 @@ class MainViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var ButtonAdd: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    // Các thuộc tính Combine
+    private var cancellables = Set<AnyCancellable>()
+    
     // MARK: - Lifecycle
     @IBAction func btnSearchAction(_ sender: UIButton) {
         
@@ -39,14 +44,17 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if viewModel == nil {
-            viewModel = MainViewModel(delegate: self)  // Khởi tạo viewModel
-        }
     
         configureUI()
         setupCollectionView()
         addTapGestureToDismissSearch()
         searchTextField.delegate = self
+        viewModel.$nodes
+                  .sink { [weak self] updatedNodes in
+                      self?.nodes = updatedNodes  // Cập nhật danh sách nodes từ viewModel
+                      self?.collectionView.reloadData()  // Làm mới giao diện
+                  }
+                  .store(in: &cancellables)
 
     }
     // MARK: - UI Setup

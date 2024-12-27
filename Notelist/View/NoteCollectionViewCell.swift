@@ -14,13 +14,11 @@ class NoteCollectionViewCell: UICollectionViewCell {
     func setup(with note: NodeModelRealm) {
         titleLabel.text = note.title
         ContentLabel.text = note.content
-        // Cho phép ContentLabel hiển thị nhiều dòng
         ContentLabel.numberOfLines = 8
         titleLabel.numberOfLines = 0
       
         let color = UIColor(hex: note.color)
         self.backgroundColor = .blue
         self.contentView.backgroundColor = color
-
        }
 }
