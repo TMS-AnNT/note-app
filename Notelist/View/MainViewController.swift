@@ -25,6 +25,27 @@ class MainViewController: UIViewController {
     // Các thuộc tính Combine
     private var cancellables = Set<AnyCancellable>()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        configureUI()
+        setupCollectionView()
+        addTapGestureToDismissSearch()
+        searchTextField.delegate = self
+        bindViewModel()
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    
     // MARK: - Lifecycle
     @IBAction func btnSearchAction(_ sender: UIButton) {
         
@@ -42,16 +63,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        configureUI()
-        setupCollectionView()
-        addTapGestureToDismissSearch()
-        searchTextField.delegate = self
-        bindViewModel()
+  
 
-    }
     private func bindViewModel() {
         viewModel.$nodes
             .sink { [weak self] updatedNodes in
@@ -67,16 +80,6 @@ class MainViewController: UIViewController {
            setupSearchTextField()
            setupBlurEffectView()
        }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     // MARK: - Setup Methods
     private func setupButtonAdd(){
         let size = min(ButtonAdd.frame.width, ButtonAdd.frame.height)

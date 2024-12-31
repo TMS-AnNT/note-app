@@ -247,3 +247,90 @@ class ViewController: UIViewController {
         isMenuOpen = false
     }
 }
+
+
+import UIKit
+
+class FirstViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemCyan
+        title = "Home"
+    }
+}
+
+class SecondViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemGreen
+        title = "Profile"
+    }
+}
+
+import UIKit
+
+class MainTabBarController: UITabBarController {
+    private let backgroundCircle = UIView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Setup child view controllers
+        let homeVC = UINavigationController(rootViewController: FirstViewController())
+        let profileVC = UINavigationController(rootViewController: SecondViewController())
+
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
+
+        viewControllers = [homeVC, profileVC]
+
+        // Customize the tab bar
+        tabBar.tintColor = .white
+        tabBar.unselectedItemTintColor = .gray
+        tabBar.backgroundColor = .cyan
+        tabBar.isTranslucent = false
+
+        // Add the background circle
+        setupBackgroundCircle()
+        updateCirclePosition(index: selectedIndex)
+    }
+
+    private func setupBackgroundCircle() {
+        // Configure the circle
+        let diameter: CGFloat = 50
+        backgroundCircle.frame = CGRect(x: 0, y: 0, width: diameter, height: diameter)
+        backgroundCircle.backgroundColor = .systemRed
+        backgroundCircle.layer.cornerRadius = diameter / 2
+        backgroundCircle.layer.shadowColor = UIColor.black.cgColor
+        backgroundCircle.layer.shadowOpacity = 0.3
+        backgroundCircle.layer.shadowOffset = CGSize(width: 0, height: 2)
+        backgroundCircle.layer.shadowRadius = 4
+
+        // Position the circle behind the tab bar
+        tabBar.addSubview(backgroundCircle)
+        tabBar.sendSubviewToBack(backgroundCircle)
+    }
+
+    private func updateCirclePosition(index: Int) {
+        guard let tabBarItems = tabBar.items else { return }
+        guard index < tabBarItems.count else { return }
+
+        // Calculate the x position of the selected tab item
+        let itemWidth = tabBar.bounds.width / CGFloat(tabBarItems.count)
+        let xPosition = itemWidth * CGFloat(index) + (itemWidth / 2) - (backgroundCircle.bounds.width / 2)
+
+        // Calculate the y position (center it vertically in the tab bar)
+        let yPosition = tabBar.bounds.midY - (backgroundCircle.bounds.height / 2) - 10
+
+        // Animate the movement of the circle
+        UIView.animate(withDuration: 0.3, animations: {
+            self.backgroundCircle.frame.origin = CGPoint(x: xPosition, y: yPosition)
+        })
+    }
+
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let index = tabBar.items?.firstIndex(of: item) else { return }
+        updateCirclePosition(index: index)
+    }
+}
+

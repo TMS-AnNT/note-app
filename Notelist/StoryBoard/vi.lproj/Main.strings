@@ -1,0 +1,74 @@
+/* Class = "UITextField"; placeholder = "Enter password"; ObjectID = "5sn-mt-VNL"; */
+"5sn-mt-VNL.placeholder" = "Nhập mật khẩu";
+
+/* Class = "UITextView"; text = "this is content"; ObjectID = "7gz-FG-Yhc"; */
+"7gz-FG-Yhc.text" = "Đây là nội dung";
+
+/* Class = "UILabel"; text = "Edit note"; ObjectID = "A1R-tK-i6w"; */
+"A1R-tK-i6w.text" = "Chỉnh sửa ghi chú";
+
+/* Class = "UILabel"; text = "Content"; ObjectID = "ENA-ye-d38"; */
+"ENA-ye-d38.text" = "Nội dung";
+
+/* Class = "UILabel"; text = "kf43jfi3fi43ộii4j3foijc3ọ43ồiii43joc34nvnfm3nfvrngm,en,gmrnermgve,mrgnvekrngvkmrngvkerg"; ObjectID = "El1-Ru-kFC"; */
+"El1-Ru-kFC.text" = "kf43jfi3fi43ộii4j3foijc3ọ43ồiii43joc34nvnfm3nfvrngm,en,gmrnermgve,mrgnvekrngvkmrngvkerg";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "F0d-p4-80v"; */
+"F0d-p4-80v.configuration.title" = "Nút bấm";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "F0d-p4-80v"; */
+"F0d-p4-80v.normalTitle" = "Nút bấm";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco "; ObjectID = "JIG-Vk-NaT"; */
+"JIG-Vk-NaT.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JXH-Rj-rIj"; */
+"JXH-Rj-rIj.normalTitle" = "Nút bấm";
+
+/* Class = "UILabel"; text = "Forgot your password"; ObjectID = "K93-X4-heS"; */
+"K93-X4-heS.text" = "Quên mật khẩu của bạn";
+
+/* Class = "UILabel"; text = "Recent Notes"; ObjectID = "KGo-Hi-OrH"; */
+"KGo-Hi-OrH.text" = "Ghi chú gần đây";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Kec-yN-FC1"; */
+"Kec-yN-FC1.normalTitle" = "Nút bấm";
+
+/* Class = "UILabel"; text = "Don't have account? Sign up? "; ObjectID = "P0B-xn-0zK"; */
+"P0B-xn-0zK.text" = "Chưa có tài khoản? Đăng ký? ";
+
+/* Class = "UILabel"; text = "wkjfeo jwoifjwe ồieij foewj fwefew"; ObjectID = "aEI-Db-Ctj"; */
+"aEI-Db-Ctj.text" = "wkjfeo jwoifjwe ồieij foewj fwefew";
+
+/* Class = "UILabel"; text = "Title Name"; ObjectID = "ano-U5-zGj"; */
+"ano-U5-zGj.text" = "Tên tiêu đề";
+
+/* Class = "UITextField"; placeholder = "Enter the Name"; ObjectID = "eUA-mM-CVm"; */
+"eUA-mM-CVm.placeholder" = "Nhập tên";
+
+/* Class = "UIButton"; configuration.title = "Create Note"; ObjectID = "glc-hI-HxH"; */
+"glc-hI-HxH.configuration.title" = "Tạo ghi chú";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "glc-hI-HxH"; */
+"glc-hI-HxH.normalTitle" = "Nút bấm";
+
+/* Class = "UILabel"; text = "User Name"; ObjectID = "hVY-J5-dST"; */
+"hVY-J5-dST.text" = "Tên người dùng";
+
+/* Class = "UILabel"; text = "Google"; ObjectID = "htc-0T-HZy"; */
+"htc-0T-HZy.text" = "Google";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "jVH-ZQ-aZj"; */
+"jVH-ZQ-aZj.text" = "Mật khẩu";
+
+/* Class = "UITextField"; placeholder = "Title name"; ObjectID = "lPe-RW-Lnq"; */
+"lPe-RW-Lnq.placeholder" = "Tên tiêu đề";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "qrq-0N-ZGs"; */
+"qrq-0N-ZGs.text" = "Đăng nhập";
+
+/* Class = "UITextField"; placeholder = "Enter uesrname"; ObjectID = "uPB-bd-zYa"; */
+"uPB-bd-zYa.placeholder" = "Nhập tên người dùng";
+
+/* Class = "UILabel"; text = "Facebook"; ObjectID = "uTx-KC-gK8"; */
+"uTx-KC-gK8.text" = "Facebook";

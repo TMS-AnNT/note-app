@@ -1,0 +1,575 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "5sn-mt-VNL.placeholder" : {
+      "comment" : "Enter password",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter password"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhập mật khẩu"
+          }
+        }
+      }
+    },
+    "7gz-FG-Yhc.text" : {
+      "comment" : "Class = \"UITextView\"; text = \"this is content\"; ObjectID = \"7gz-FG-Yhc\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "this is content"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đây là nội dung"
+          }
+        }
+      }
+    },
+    "A1R-tK-i6w.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Edit note\"; ObjectID = \"A1R-tK-i6w\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit note"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chỉnh sửa ghi chú"
+          }
+        }
+      }
+    },
+    "aEI-Db-Ctj.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"wkjfeo jwoifjwe ồieij foewj fwefew\"; ObjectID = \"aEI-Db-Ctj\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "wkjfeo jwoifjwe ồieij foewj fwefew"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "wkjfeo jwoifjwe ồieij foewj fwefew"
+          }
+        }
+      }
+    },
+    "ano-U5-zGj.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Title Name\"; ObjectID = \"ano-U5-zGj\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title Name"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tên tiêu đề"
+          }
+        }
+      }
+    },
+    "El1-Ru-kFC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"kf43jfi3fi43ộii4j3foijc3ọ43ồiii43joc34nvnfm3nfvrngm,en,gmrnermgve,mrgnvekrngvkmrngvkerg\"; ObjectID = \"El1-Ru-kFC\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "kf43jfi3fi43ộii4j3foijc3ọ43ồiii43joc34nvnfm3nfvrngm,en,gmrnermgve,mrgnvekrngvkmrngvkerg"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "kf43jfi3fi43ộii4j3foijc3ọ43ồiii43joc34nvnfm3nfvrngm,en,gmrnermgve,mrgnvekrngvkmrngvkerg"
+          }
+        }
+      }
+    },
+    "ENA-ye-d38.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Content\"; ObjectID = \"ENA-ye-d38\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Content"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nội dung"
+          }
+        }
+      }
+    },
+    "eUA-mM-CVm.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"Enter the Name\"; ObjectID = \"eUA-mM-CVm\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the Name"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhập tên"
+          }
+        }
+      }
+    },
+    "F0d-p4-80v.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Button\"; ObjectID = \"F0d-p4-80v\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nút"
+          }
+        }
+      }
+    },
+    "F0d-p4-80v.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"F0d-p4-80v\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nút"
+          }
+        }
+      }
+    },
+    "glc-hI-HxH.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Create Note\"; ObjectID = \"glc-hI-HxH\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create Note"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tạo ghi chú"
+          }
+        }
+      }
+    },
+    "glc-hI-HxH.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"glc-hI-HxH\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nút"
+          }
+        }
+      }
+    },
+    "greeting" : {
+      "comment" : "Greeting text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xin chào!"
+          }
+        }
+      }
+    },
+    "htc-0T-HZy.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Google\"; ObjectID = \"htc-0T-HZy\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google"
+          }
+        }
+      }
+    },
+    "hVY-J5-dST.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"User Name\"; ObjectID = \"hVY-J5-dST\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Name"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tên người dùng"
+          }
+        }
+      }
+    },
+    "JIG-Vk-NaT.text" : {
+      "comment" : "Class = \"UITextView\"; text = \"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco \"; ObjectID = \"JIG-Vk-NaT\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco "
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco "
+          }
+        }
+      }
+    },
+    "jVH-ZQ-aZj.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Password\"; ObjectID = \"jVH-ZQ-aZj\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mật khẩu"
+          }
+        }
+      }
+    },
+    "JXH-Rj-rIj.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"JXH-Rj-rIj\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nút"
+          }
+        }
+      }
+    },
+    "K93-X4-heS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Forgot your password\"; ObjectID = \"K93-X4-heS\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot your password"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quên mật khẩu của bạn"
+          }
+        }
+      }
+    },
+    "Kec-yN-FC1.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Kec-yN-FC1\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nút"
+          }
+        }
+      }
+    },
+    "KGo-Hi-OrH.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Recent Notes\"; ObjectID = \"KGo-Hi-OrH\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Notes"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ghi chú gần đây"
+          }
+        }
+      }
+    },
+    "login_label" : {
+      "comment" : "Login button text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đăng nhập"
+          }
+        }
+      }
+    },
+    "lPe-RW-Lnq.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"Title name\"; ObjectID = \"lPe-RW-Lnq\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title name"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tên tiêu đề"
+          }
+        }
+      }
+    },
+    "P0B-xn-0zK.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Don't have account? Sign up? \"; ObjectID = \"P0B-xn-0zK\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have account? Sign up? "
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chưa có tài khoản? Đăng ký? "
+          }
+        }
+      }
+    },
+    "password_label" : {
+      "comment" : "Password field label",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mật khẩu"
+          }
+        }
+      }
+    },
+    "qrq-0N-ZGs.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Login\"; ObjectID = \"qrq-0N-ZGs\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đăng nhập"
+          }
+        }
+      }
+    },
+    "recommend_text" : {
+      "comment" : "Recommended text for the user",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fogot your passwrod"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn quên mật khẩu"
+          }
+        }
+      }
+    },
+    "text_label" : {
+      "comment" : "Text label description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have account? Sign up?"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn không có tài khoản? Đăng kí"
+          }
+        }
+      }
+    },
+    "uPB-bd-zYa.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"Enter uesrname\"; ObjectID = \"uPB-bd-zYa\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter uesrname"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhập tên người dùng"
+          }
+        }
+      }
+    },
+    "username_label" : {
+      "comment" : "Username field label",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Name"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tên tài khoản"
+          }
+        }
+      }
+    },
+    "uTx-KC-gK8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Facebook\"; ObjectID = \"uTx-KC-gK8\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Facebook"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Facebook"
+          }
+        }
+      }
+    },
+    "welcome_message" : {
+      "comment" : "Welcome message",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to our app."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chào mừng bạn đến với ứng dụng của chúng tôi."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

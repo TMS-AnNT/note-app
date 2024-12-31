@@ -11,6 +11,10 @@
 		7706AE232D1A6F200067B118 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7706AE222D1A6F200067B118 /* RealmSwift */; };
 		7706AE252D1A6F960067B118 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706AE242D1A6F950067B118 /* NoteManager.swift */; };
 		77655BEB2D190A88001798F3 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77655BEA2D190A88001798F3 /* NotesModel.swift */; };
+		77736BF32D2397DF007DB27C /* LocalizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77736BF22D2397DF007DB27C /* LocalizationViewController.swift */; };
+		77736BFC2D239E08007DB27C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77736BFB2D239E08007DB27C /* SignInViewController.swift */; };
+		77736C0A2D23CD62007DB27C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 77736C092D23CD62007DB27C /* Localizable.xcstrings */; };
+		77736C102D23D676007DB27C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E8169E2D18F74700A025CD /* Main.storyboard */; };
 		77859BCE2D1C650300FF6A98 /* MainViewController_CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77859BCD2D1C650300FF6A98 /* MainViewController_CollectionView.swift */; };
 		77859BD12D1C6E7A00FF6A98 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77859BD02D1C6E7A00FF6A98 /* MainViewModel.swift */; };
 		77BE0EF32D1D2DC000D03A68 /* MainViewController_SearchHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE0EF22D1D2DC000D03A68 /* MainViewController_SearchHandling.swift */; };
@@ -50,6 +54,13 @@
 		7706AE1D2D1A5CE40067B118 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		7706AE242D1A6F950067B118 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		77655BEA2D190A88001798F3 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
+		77736BF22D2397DF007DB27C /* LocalizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationViewController.swift; sourceTree = "<group>"; };
+		77736BF92D2398D1007DB27C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		77736BFB2D239E08007DB27C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		77736C062D23C9DD007DB27C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		77736C092D23CD62007DB27C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		77736C0C2D23D313007DB27C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; usesTabs = 0; };
+		77736C0F2D23D417007DB27C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		77859BCD2D1C650300FF6A98 /* MainViewController_CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController_CollectionView.swift; sourceTree = "<group>"; };
 		77859BD02D1C6E7A00FF6A98 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		77BE0EF22D1D2DC000D03A68 /* MainViewController_SearchHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController_SearchHandling.swift; sourceTree = "<group>"; };
@@ -106,6 +117,8 @@
 				77D3BD8B2D1968A9001BB4C4 /* MainViewController.swift */,
 				77859BCD2D1C650300FF6A98 /* MainViewController_CollectionView.swift */,
 				77BE0EF22D1D2DC000D03A68 /* MainViewController_SearchHandling.swift */,
+				77736BF22D2397DF007DB27C /* LocalizationViewController.swift */,
+				77736BFB2D239E08007DB27C /* SignInViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +138,14 @@
 				77655BEA2D190A88001798F3 /* NotesModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		77736BF42D23981A007DB27C /* Resoures */ = {
+			isa = PBXGroup;
+			children = (
+				77736C092D23CD62007DB27C /* Localizable.xcstrings */,
+			);
+			path = Resoures;
 			sourceTree = "<group>";
 		};
 		77859BCC2D1C626100FF6A98 /* Manager */ = {
@@ -174,6 +195,7 @@
 		77E816972D18F74700A025CD /* Notelist */ = {
 			isa = PBXGroup;
 			children = (
+				77736BF42D23981A007DB27C /* Resoures */,
 				77BE0EF72D1D487100D03A68 /* Utilities */,
 				77859BCF2D1C6E4B00FF6A98 /* ViewModel */,
 				77859BCC2D1C626100FF6A98 /* Manager */,
@@ -296,6 +318,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 77E8168C2D18F74700A025CD;
 			packageReferences = (
@@ -319,6 +342,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77E816A22D18F75200A025CD /* Assets.xcassets in Resources */,
+				77736C102D23D676007DB27C /* Main.storyboard in Resources */,
+				77736C0A2D23CD62007DB27C /* Localizable.xcstrings in Resources */,
 				77E816A52D18F75200A025CD /* Base in Resources */,
 				77E816A02D18F74700A025CD /* Base in Resources */,
 			);
@@ -345,12 +370,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77736BFC2D239E08007DB27C /* SignInViewController.swift in Sources */,
 				7706AE1E2D1A5CE40067B118 /* AddNoteViewController.swift in Sources */,
 				77E8169D2D18F74700A025CD /* ViewController.swift in Sources */,
 				77E816992D18F74700A025CD /* AppDelegate.swift in Sources */,
 				77E8169B2D18F74700A025CD /* SceneDelegate.swift in Sources */,
 				77859BCE2D1C650300FF6A98 /* MainViewController_CollectionView.swift in Sources */,
 				77859BD12D1C6E7A00FF6A98 /* MainViewModel.swift in Sources */,
+				77736BF32D2397DF007DB27C /* LocalizationViewController.swift in Sources */,
 				77D3BD8C2D1968A9001BB4C4 /* MainViewController.swift in Sources */,
 				77BE0EF32D1D2DC000D03A68 /* MainViewController_SearchHandling.swift in Sources */,
 				7706AE252D1A6F960067B118 /* NoteManager.swift in Sources */,
@@ -397,6 +424,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				77E8169F2D18F74700A025CD /* Base */,
+				77736C062D23C9DD007DB27C /* en */,
+				77736C0C2D23D313007DB27C /* vi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -405,6 +434,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				77E816A42D18F75200A025CD /* Base */,
+				77736BF92D2398D1007DB27C /* vi */,
+				77736C0F2D23D417007DB27C /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -417,6 +448,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -480,6 +512,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
