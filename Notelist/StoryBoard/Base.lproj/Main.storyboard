@@ -524,24 +524,12 @@
                                     <constraint firstAttribute="height" constant="40" id="nOu-6o-W3n"/>
                                 </constraints>
                             </colorWell>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SB1-7G-KuS">
-                                <rect key="frame" x="109" y="743" width="49" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="acR-s4-xKw"/>
-                                    <constraint firstAttribute="height" constant="31" id="l2Z-Um-xRG"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="LangueChangeUISwitch:" destination="MN3-G4-Xhe" eventType="valueChanged" id="tbd-4Y-dFx"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hW9-W9-VkZ"/>
                         <color key="backgroundColor" red="0.84964883207070707" green="0.81343230299293423" blue="0.72667405205290736" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="JIG-Vk-NaT" firstAttribute="top" secondItem="lPe-RW-Lnq" secondAttribute="bottom" constant="8.3333333333333144" id="5q7-36-oRi"/>
                             <constraint firstItem="aKj-jh-Jsl" firstAttribute="centerX" secondItem="HkL-vs-w1T" secondAttribute="centerX" id="EwY-sQ-KYF"/>
-                            <constraint firstItem="Ydq-17-FBi" firstAttribute="leading" secondItem="SB1-7G-KuS" secondAttribute="trailing" constant="42" id="OGa-Xe-xj9"/>
-                            <constraint firstItem="hW9-W9-VkZ" firstAttribute="bottom" secondItem="SB1-7G-KuS" secondAttribute="bottom" constant="44" id="T08-MP-ODh"/>
                             <constraint firstItem="hW9-W9-VkZ" firstAttribute="trailing" secondItem="JXH-Rj-rIj" secondAttribute="trailing" constant="40" id="Td8-6K-vXt"/>
                             <constraint firstItem="JXH-Rj-rIj" firstAttribute="leading" secondItem="Ydq-17-FBi" secondAttribute="trailing" constant="40" id="YYr-pN-iTD"/>
                             <constraint firstItem="Ydq-17-FBi" firstAttribute="width" secondItem="JXH-Rj-rIj" secondAttribute="width" multiplier="0.595745" constant="40" id="dfn-ow-ZwK"/>
@@ -562,7 +550,6 @@
                     <connections>
                         <outlet property="BtnAdd" destination="JXH-Rj-rIj" id="kLB-bO-vF9"/>
                         <outlet property="ColorWell" destination="Ydq-17-FBi" id="wTW-6x-kIM"/>
-                        <outlet property="LangueUISwitch" destination="SB1-7G-KuS" id="vC8-y1-gqX"/>
                         <outlet property="TxtContent" destination="JIG-Vk-NaT" id="swq-Vi-tPM"/>
                         <outlet property="UIImageBack" destination="uoN-Ml-DeN" id="l7n-wU-on2"/>
                         <outlet property="txtTitle" destination="lPe-RW-Lnq" id="tqE-u7-rzE"/>

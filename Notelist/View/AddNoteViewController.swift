@@ -16,7 +16,7 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var BtnAdd: UIButton!
     @IBOutlet weak var UIImageBack: UIImageView!
     
-    @IBOutlet weak var LangueUISwitch: UISwitch!
+
     
     var onAddNote: ((String , String,String) -> Void)?
     var existingNote: NodeModelRealm?
@@ -47,16 +47,7 @@ class AddNoteViewController: UIViewController {
             } else {
                 BtnAdd.setTitle("Add", for: .normal)
             }
-        if let selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") {
-            LangueUISwitch.isOn = selectedLanguage == "vi"
-        }
-        // Update language when the view is loaded
-        updateLanguage()
-
-    }
-    
-    @IBAction func LangueChangeUISwitch(_ sender: UISwitch) {
-        updateLanguage()
+   
     }
     
     @IBAction func btnActionAddNote(_ sender: Any) {
@@ -90,18 +81,6 @@ class AddNoteViewController: UIViewController {
     @objc func imageTapped() {
         navigationController?.popViewController(animated: true)
 
-    }
-    func updateLanguage() {
-        if LangueUISwitch.isOn {
-            // Set language to Vietnamese
-            UserDefaults.standard.set("vi", forKey: "selectedLanguage")
-            Bundle.setLanguage("vi")
-        } else {
-            // Set language to English
-            UserDefaults.standard.set("en", forKey: "selectedLanguage")
-            Bundle.setLanguage("en")
-        }
-  
     }
 
     
