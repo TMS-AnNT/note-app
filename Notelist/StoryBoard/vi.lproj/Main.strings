@@ -7,6 +7,12 @@
 /* Class = "UILabel"; text = "Edit note"; ObjectID = "A1R-tK-i6w"; */
 "A1R-tK-i6w.text" = "Chỉnh sửa ghi chú";
 
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "CYC-rf-GBm"; */
+"CYC-rf-GBm.configuration.title" = "Nút";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CYC-rf-GBm"; */
+"CYC-rf-GBm.normalTitle" = "Nút";
+
 /* Class = "UILabel"; text = "Content"; ObjectID = "ENA-ye-d38"; */
 "ENA-ye-d38.text" = "Nội dung";
 
@@ -14,28 +20,28 @@
 "El1-Ru-kFC.text" = "kf43jfi3fi43ộii4j3foijc3ọ43ồiii43joc34nvnfm3nfvrngm,en,gmrnermgve,mrgnvekrngvkmrngvkerg";
 
 /* Class = "UIButton"; configuration.title = "Button"; ObjectID = "F0d-p4-80v"; */
-"F0d-p4-80v.configuration.title" = "Nút bấm";
+"F0d-p4-80v.configuration.title" = "Nút";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "F0d-p4-80v"; */
-"F0d-p4-80v.normalTitle" = "Nút bấm";
+"F0d-p4-80v.normalTitle" = "Nút";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco "; ObjectID = "JIG-Vk-NaT"; */
 "JIG-Vk-NaT.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JXH-Rj-rIj"; */
-"JXH-Rj-rIj.normalTitle" = "Nút bấm";
+"JXH-Rj-rIj.normalTitle" = "Nút";
 
 /* Class = "UILabel"; text = "Forgot your password"; ObjectID = "K93-X4-heS"; */
-"K93-X4-heS.text" = "Quên mật khẩu của bạn";
+"K93-X4-heS.text" = "Quên mật khẩu?";
 
 /* Class = "UILabel"; text = "Recent Notes"; ObjectID = "KGo-Hi-OrH"; */
 "KGo-Hi-OrH.text" = "Ghi chú gần đây";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Kec-yN-FC1"; */
-"Kec-yN-FC1.normalTitle" = "Nút bấm";
+"Kec-yN-FC1.normalTitle" = "Nút";
 
 /* Class = "UILabel"; text = "Don't have account? Sign up? "; ObjectID = "P0B-xn-0zK"; */
-"P0B-xn-0zK.text" = "Chưa có tài khoản? Đăng ký? ";
+"P0B-xn-0zK.text" = "Chưa có tài khoản? Đăng ký?";
 
 /* Class = "UILabel"; text = "wkjfeo jwoifjwe ồieij foewj fwefew"; ObjectID = "aEI-Db-Ctj"; */
 "aEI-Db-Ctj.text" = "wkjfeo jwoifjwe ồieij foewj fwefew";
@@ -50,7 +56,7 @@
 "glc-hI-HxH.configuration.title" = "Tạo ghi chú";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "glc-hI-HxH"; */
-"glc-hI-HxH.normalTitle" = "Nút bấm";
+"glc-hI-HxH.normalTitle" = "Nút";
 
 /* Class = "UILabel"; text = "User Name"; ObjectID = "hVY-J5-dST"; */
 "hVY-J5-dST.text" = "Tên người dùng";

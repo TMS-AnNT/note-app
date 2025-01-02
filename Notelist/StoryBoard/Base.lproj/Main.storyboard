@@ -257,6 +257,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbZ-7J-sRG">
+                                <rect key="frame" x="304" y="103" width="51" height="31"/>
+                                <connections>
+                                    <action selector="languageSwitchChanged:" destination="CWs-Si-2f2" eventType="valueChanged" id="H9t-RY-qkL"/>
+                                </connections>
+                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYC-rf-GBm">
                                 <rect key="frame" x="277" y="553" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -274,6 +280,7 @@
                             <constraint firstItem="ZGK-VH-c4x" firstAttribute="top" secondItem="YDN-lw-pcm" secondAttribute="top" constant="40" id="DtW-wY-tqQ"/>
                             <constraint firstItem="jVH-ZQ-aZj" firstAttribute="top" secondItem="uPB-bd-zYa" secondAttribute="bottom" constant="20" id="ETH-Vg-Gwm"/>
                             <constraint firstItem="K93-X4-heS" firstAttribute="centerX" secondItem="qrq-0N-ZGs" secondAttribute="centerX" id="G1H-Y3-WvM"/>
+                            <constraint firstItem="YDN-lw-pcm" firstAttribute="trailing" secondItem="LbZ-7J-sRG" secondAttribute="trailing" constant="40" id="M22-cb-ipi"/>
                             <constraint firstItem="YDN-lw-pcm" firstAttribute="trailing" secondItem="5sn-mt-VNL" secondAttribute="trailing" constant="30" id="OaC-sk-gwa"/>
                             <constraint firstItem="qrq-0N-ZGs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YDN-lw-pcm" secondAttribute="leading" constant="30" id="P2u-Bb-K0P"/>
                             <constraint firstItem="qrq-0N-ZGs" firstAttribute="centerX" secondItem="5TL-6i-UhG" secondAttribute="centerX" id="S2D-yB-U5O"/>
@@ -287,6 +294,7 @@
                             <constraint firstItem="K93-X4-heS" firstAttribute="trailing" secondItem="qrq-0N-ZGs" secondAttribute="trailing" id="eXn-SZ-SwW"/>
                             <constraint firstItem="ZGK-VH-c4x" firstAttribute="centerX" secondItem="5TL-6i-UhG" secondAttribute="centerX" id="ex2-G8-3x9"/>
                             <constraint firstItem="YDN-lw-pcm" firstAttribute="bottom" secondItem="P0B-xn-0zK" secondAttribute="bottom" constant="30" id="hMH-mT-waH"/>
+                            <constraint firstItem="LbZ-7J-sRG" firstAttribute="top" secondItem="YDN-lw-pcm" secondAttribute="top" id="l6y-qW-zP6"/>
                             <constraint firstItem="5sn-mt-VNL" firstAttribute="top" secondItem="jVH-ZQ-aZj" secondAttribute="bottom" constant="20" id="lbj-fK-RhE"/>
                             <constraint firstItem="uPB-bd-zYa" firstAttribute="top" secondItem="hVY-J5-dST" secondAttribute="bottom" constant="20" id="ld6-P3-YFc"/>
                             <constraint firstItem="uPB-bd-zYa" firstAttribute="leading" secondItem="hVY-J5-dST" secondAttribute="leading" id="llt-fI-DOc"/>
@@ -298,14 +306,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="YDB-h8-PAf"/>
                     <connections>
-                        <outlet property="UserNametxt" destination="hVY-J5-dST" id="gy5-v1-gte"/>
+                        <outlet property="ForgetLabel" destination="K93-X4-heS" id="XfS-Ni-LF1"/>
+                        <outlet property="LoginLabel" destination="qrq-0N-ZGs" id="Sg7-4g-16F"/>
+                        <outlet property="PasswrodLabel" destination="jVH-ZQ-aZj" id="wpX-Ui-2r1"/>
+                        <outlet property="UserNameLable" destination="hVY-J5-dST" id="zmZ-41-oNy"/>
+                        <outlet property="UserNametxt" destination="P0B-xn-0zK" id="3US-GC-cOD"/>
+                        <outlet property="guildLabel" destination="P0B-xn-0zK" id="jz4-Gm-uml"/>
+                        <outlet property="languageUISwitch" destination="LbZ-7J-sRG" id="GZb-SC-3fq"/>
                         <outlet property="passwordTextField" destination="uPB-bd-zYa" id="W8s-h5-9EA"/>
-                        <segue destination="YOA-im-eKz" kind="showDetail" identifier="NoteList" id="pc8-Ch-z34"/>
+                        <segue destination="NAd-5h-H76" kind="show" id="AGk-CT-NUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhC-O4-tWT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2512.2137404580153" y="27.464788732394368"/>
+            <point key="canvasLocation" x="2462" y="41"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Q2J-pb-RNt">
@@ -442,6 +456,7 @@
                     <connections>
                         <outlet property="ButtonAdd" destination="wOk-ur-GIn" id="cN9-84-I9k"/>
                         <outlet property="SearchBarBtn" destination="Kec-yN-FC1" id="xKv-Ep-CWQ"/>
+                        <outlet property="backUIImageView" destination="6PR-wd-4ny" id="Jzn-Xe-1KT"/>
                         <outlet property="collectionView" destination="GSH-v3-M8d" id="Pvn-SC-nHo"/>
                         <segue destination="MN3-G4-Xhe" kind="show" identifier="ScreenAddNote" id="tOh-91-QOB"/>
                     </connections>
@@ -509,12 +524,24 @@
                                     <constraint firstAttribute="height" constant="40" id="nOu-6o-W3n"/>
                                 </constraints>
                             </colorWell>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SB1-7G-KuS">
+                                <rect key="frame" x="109" y="743" width="49" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="acR-s4-xKw"/>
+                                    <constraint firstAttribute="height" constant="31" id="l2Z-Um-xRG"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="LangueChangeUISwitch:" destination="MN3-G4-Xhe" eventType="valueChanged" id="tbd-4Y-dFx"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hW9-W9-VkZ"/>
                         <color key="backgroundColor" red="0.84964883207070707" green="0.81343230299293423" blue="0.72667405205290736" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="JIG-Vk-NaT" firstAttribute="top" secondItem="lPe-RW-Lnq" secondAttribute="bottom" constant="8.3333333333333144" id="5q7-36-oRi"/>
                             <constraint firstItem="aKj-jh-Jsl" firstAttribute="centerX" secondItem="HkL-vs-w1T" secondAttribute="centerX" id="EwY-sQ-KYF"/>
+                            <constraint firstItem="Ydq-17-FBi" firstAttribute="leading" secondItem="SB1-7G-KuS" secondAttribute="trailing" constant="42" id="OGa-Xe-xj9"/>
+                            <constraint firstItem="hW9-W9-VkZ" firstAttribute="bottom" secondItem="SB1-7G-KuS" secondAttribute="bottom" constant="44" id="T08-MP-ODh"/>
                             <constraint firstItem="hW9-W9-VkZ" firstAttribute="trailing" secondItem="JXH-Rj-rIj" secondAttribute="trailing" constant="40" id="Td8-6K-vXt"/>
                             <constraint firstItem="JXH-Rj-rIj" firstAttribute="leading" secondItem="Ydq-17-FBi" secondAttribute="trailing" constant="40" id="YYr-pN-iTD"/>
                             <constraint firstItem="Ydq-17-FBi" firstAttribute="width" secondItem="JXH-Rj-rIj" secondAttribute="width" multiplier="0.595745" constant="40" id="dfn-ow-ZwK"/>
@@ -535,6 +562,7 @@
                     <connections>
                         <outlet property="BtnAdd" destination="JXH-Rj-rIj" id="kLB-bO-vF9"/>
                         <outlet property="ColorWell" destination="Ydq-17-FBi" id="wTW-6x-kIM"/>
+                        <outlet property="LangueUISwitch" destination="SB1-7G-KuS" id="vC8-y1-gqX"/>
                         <outlet property="TxtContent" destination="JIG-Vk-NaT" id="swq-Vi-tPM"/>
                         <outlet property="UIImageBack" destination="uoN-Ml-DeN" id="l7n-wU-on2"/>
                         <outlet property="txtTitle" destination="lPe-RW-Lnq" id="tqE-u7-rzE"/>
@@ -561,24 +589,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHc-nK-39b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1585.4961832061067" y="27.464788732394368"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="z1B-8g-4V7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YOA-im-eKz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vUm-aO-RTy">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="NAd-5h-H76" kind="relationship" relationship="rootViewController" id="i8W-kh-HKt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JeG-7N-hYo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1214.5038167938931" y="-650"/>
         </scene>
     </scenes>
     <resources>

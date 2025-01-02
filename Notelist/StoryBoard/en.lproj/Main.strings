@@ -8,6 +8,12 @@
 /* Class = "UILabel"; text = "Edit note"; ObjectID = "A1R-tK-i6w"; */
 "A1R-tK-i6w.text" = "Edit note";
 
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "CYC-rf-GBm"; */
+"CYC-rf-GBm.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CYC-rf-GBm"; */
+"CYC-rf-GBm.normalTitle" = "Button";
+
 /* Class = "UILabel"; text = "Content"; ObjectID = "ENA-ye-d38"; */
 "ENA-ye-d38.text" = "Content";
 

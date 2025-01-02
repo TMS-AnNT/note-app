@@ -10,6 +10,8 @@ import Combine
 
 class MainViewController: UIViewController {
     // MARK: - Properties
+    
+    @IBOutlet weak var backUIImageView: UIImageView!
     @IBOutlet weak var SearchBarBtn: UIButton!
     var nodes: [NodeModelRealm] = []
     // MARK: - Properties
@@ -33,7 +35,12 @@ class MainViewController: UIViewController {
         addTapGestureToDismissSearch()
         searchTextField.delegate = self
         bindViewModel()
-
+        
+        backUIImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTappedd))
+        backUIImageView.addGestureRecognizer(tapGesture)
+        
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,8 +70,17 @@ class MainViewController: UIViewController {
         }
     }
     
-  
+    @objc func imageTappedd() {
+        if let navigationController = navigationController {
+              navigationController.popViewController(animated: true)
+              print("Back to previous screen")
+            dismiss(animated: true, completion: nil)
 
+          } else {
+              print("No navigation controller found")
+          }
+         
+    }
     private func bindViewModel() {
         viewModel.$nodes
             .sink { [weak self] updatedNodes in
