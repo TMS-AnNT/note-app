@@ -18,6 +18,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var LoginLabel: UILabel!
     @IBOutlet weak var languageUISwitch: UISwitch!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
              if let selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") {
@@ -30,7 +33,6 @@ class SignInViewController: UIViewController {
     @IBAction func languageSwitchChanged(_ sender: Any) {
         updateLanguage()
         print("\(languageUISwitch.isOn)")
-        //  reloadRootViewController()
         updateLabel()
     }
   
@@ -71,8 +73,9 @@ class SignInViewController: UIViewController {
         PasswrodLabel.text = NSLocalizedString("jVH-ZQ-aZj.text", comment: "Greeting message")
         UserNameLable.text = NSLocalizedString("username_label", comment: "Greeting message")
     }
-    
+    	
 }
+
 import Foundation
 
 extension Bundle {
@@ -96,21 +99,3 @@ class MyBundle: Bundle {
     }
 }
 
-//func reloadRootViewController() {
-//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//    
-//    // Assuming your initial view controller is named "SignInViewController"
-//    let rootViewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-//    
-//    // Set new root view controller
-//    if let window = UIApplication.shared.windows.first {
-//        window.rootViewController = rootViewController
-//        window.makeKeyAndVisible()
-//        
-//        // Optional: Add a transition for a smoother experience
-//        let transition = CATransition()
-//        transition.type = .fade
-//        transition.duration = 0.5
-//        window.layer.add(transition, forKey: kCATransition)
-//    }
-//}

@@ -16,12 +16,6 @@ class MainViewModel {
     @Published var nodes: [NodeModelRealm] = []
     private var cancellables = Set<AnyCancellable>()
     
-
-//    var nodes: [NodeModelRealm] = []{
-//        didSet{
-//            delegate?.didUpdateNodes()
-//        }
-//    }
     private var allNodes: [NodeModelRealm] = []
     // MARK: - Initializer
     init(){
@@ -32,18 +26,25 @@ class MainViewModel {
           allNodes = Array(nodeManager.getAllNodes())
           nodes = allNodes
       }
-    func addNode(title: String, content: String,color: String?) {
+    func addNode(title: String, content: String,color: String?, audioFiles: [String]) {
         let newNode = nodeManager.createNode(title: title, content: content,color: color ?? "#000000")
+        newNode.audioFilePaths.append(objectsIn: audioFiles)
         nodes.append(newNode)
     }
 
     func updateNode(_ updatedNode: NodeModelRealm) {
-        nodeManager.updateNode(id: updatedNode.id, newTitle: updatedNode.title, newContent: updatedNode.content,color: updatedNode.color)
+        nodeManager.updateNode(id: updatedNode.id, newTitle: updatedNode.title, newContent: updatedNode.content, color: updatedNode.color)
 
-        if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
-            nodes[index] = updatedNode
-           // delegate?.didUpdateNodes()
-        }
+           if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
+               nodes[index] = updatedNode
+           }
+
+           // update file audio if necessary
+           if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
+               let currentNode = nodes[index]
+               currentNode.audioFilePaths.removeAll()
+               currentNode.audioFilePaths.append(objectsIn: updatedNode.audioFilePaths)
+           }
     }
 
     func deleteNode(at index: Int) {

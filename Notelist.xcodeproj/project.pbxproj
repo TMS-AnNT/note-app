@@ -10,8 +10,11 @@
 		7706AE1E2D1A5CE40067B118 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706AE1D2D1A5CE40067B118 /* AddNoteViewController.swift */; };
 		7706AE232D1A6F200067B118 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7706AE222D1A6F200067B118 /* RealmSwift */; };
 		7706AE252D1A6F960067B118 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706AE242D1A6F950067B118 /* NoteManager.swift */; };
+		77088DB42D2CD271007905FC /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77088DB32D2CD271007905FC /* AddNoteViewModel.swift */; };
+		77088DB82D2CE420007905FC /* AudioRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77088DB72D2CE420007905FC /* AudioRecordingViewController.swift */; };
+		77088DBB2D2CF655007905FC /* WaveFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77088DBA2D2CF655007905FC /* WaveFormView.swift */; };
+		773089E62D2E55D100E78C76 /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773089E52D2E55D100E78C76 /* AudioTableViewCell.swift */; };
 		77655BEB2D190A88001798F3 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77655BEA2D190A88001798F3 /* NotesModel.swift */; };
-		77736BF32D2397DF007DB27C /* LocalizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77736BF22D2397DF007DB27C /* LocalizationViewController.swift */; };
 		77736BFC2D239E08007DB27C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77736BFB2D239E08007DB27C /* SignInViewController.swift */; };
 		77736C102D23D676007DB27C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E8169E2D18F74700A025CD /* Main.storyboard */; };
 		77736C1B2D268B5B007DB27C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 77736C1A2D268B5B007DB27C /* Localizable.xcstrings */; };
@@ -53,8 +56,11 @@
 /* Begin PBXFileReference section */
 		7706AE1D2D1A5CE40067B118 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		7706AE242D1A6F950067B118 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
+		77088DB32D2CD271007905FC /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		77088DB72D2CE420007905FC /* AudioRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingViewController.swift; sourceTree = "<group>"; };
+		77088DBA2D2CF655007905FC /* WaveFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFormView.swift; sourceTree = "<group>"; };
+		773089E52D2E55D100E78C76 /* AudioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
 		77655BEA2D190A88001798F3 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
-		77736BF22D2397DF007DB27C /* LocalizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationViewController.swift; sourceTree = "<group>"; };
 		77736BF92D2398D1007DB27C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		77736BFB2D239E08007DB27C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		77736C0F2D23D417007DB27C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -112,15 +118,24 @@
 		7706AE1F2D1A5EC90067B118 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				77D3BD8D2D19AE06001BB4C4 /* NoteCollectionViewCell.swift */,
 				7706AE1D2D1A5CE40067B118 /* AddNoteViewController.swift */,
 				77D3BD8B2D1968A9001BB4C4 /* MainViewController.swift */,
 				77859BCD2D1C650300FF6A98 /* MainViewController_CollectionView.swift */,
 				77BE0EF22D1D2DC000D03A68 /* MainViewController_SearchHandling.swift */,
-				77736BF22D2397DF007DB27C /* LocalizationViewController.swift */,
 				77736BFB2D239E08007DB27C /* SignInViewController.swift */,
+				77088DB72D2CE420007905FC /* AudioRecordingViewController.swift */,
+				77088DBA2D2CF655007905FC /* WaveFormView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		773089E72D2E5BA900E78C76 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				773089E52D2E55D100E78C76 /* AudioTableViewCell.swift */,
+				77D3BD8D2D19AE06001BB4C4 /* NoteCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		77655BE02D1901F4001798F3 /* StoryBoard */ = {
@@ -131,6 +146,7 @@
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		77655BE92D190A76001798F3 /* Model */ = {
 			isa = PBXGroup;
@@ -160,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				77859BD02D1C6E7A00FF6A98 /* MainViewModel.swift */,
+				77088DB32D2CD271007905FC /* AddNoteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +212,7 @@
 		77E816972D18F74700A025CD /* Notelist */ = {
 			isa = PBXGroup;
 			children = (
+				773089E72D2E5BA900E78C76 /* Cell */,
 				77736BF42D23981A007DB27C /* Resoures */,
 				77BE0EF72D1D487100D03A68 /* Utilities */,
 				77859BCF2D1C6E4B00FF6A98 /* ViewModel */,
@@ -370,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77088DB42D2CD271007905FC /* AddNoteViewModel.swift in Sources */,
 				77736BFC2D239E08007DB27C /* SignInViewController.swift in Sources */,
 				7706AE1E2D1A5CE40067B118 /* AddNoteViewController.swift in Sources */,
 				77E8169D2D18F74700A025CD /* ViewController.swift in Sources */,
@@ -377,11 +396,13 @@
 				77E8169B2D18F74700A025CD /* SceneDelegate.swift in Sources */,
 				77859BCE2D1C650300FF6A98 /* MainViewController_CollectionView.swift in Sources */,
 				77859BD12D1C6E7A00FF6A98 /* MainViewModel.swift in Sources */,
-				77736BF32D2397DF007DB27C /* LocalizationViewController.swift in Sources */,
 				77D3BD8C2D1968A9001BB4C4 /* MainViewController.swift in Sources */,
 				77BE0EF32D1D2DC000D03A68 /* MainViewController_SearchHandling.swift in Sources */,
+				77088DB82D2CE420007905FC /* AudioRecordingViewController.swift in Sources */,
+				77088DBB2D2CF655007905FC /* WaveFormView.swift in Sources */,
 				7706AE252D1A6F960067B118 /* NoteManager.swift in Sources */,
 				77BE0EF52D1D485200D03A68 /* UIColor_Hex.swift in Sources */,
+				773089E62D2E55D100E78C76 /* AudioTableViewCell.swift in Sources */,
 				77655BEB2D190A88001798F3 /* NotesModel.swift in Sources */,
 				77D3BD8E2D19AE06001BB4C4 /* NoteCollectionViewCell.swift in Sources */,
 			);

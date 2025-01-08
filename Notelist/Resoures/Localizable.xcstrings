@@ -218,6 +218,7 @@
     },
     "greeting" : {
       "comment" : "Greeting text",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -558,6 +559,7 @@
     },
     "welcome_message" : {
       "comment" : "Welcome message",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

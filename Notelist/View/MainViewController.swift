@@ -122,7 +122,7 @@ class MainViewController: UIViewController {
         if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
             print("Navigating to AddNoteViewController")
             addNoteVC.onAddNote = { [weak self] title, content , color in
-                self?.viewModel.addNode(title: title, content: content,color: color) // Thêm ghi chú mới
+                self?.viewModel.addNode(title: title, content: content,color: color,audioFiles: []) // Thêm ghi chú mới
             }
             addNoteVC.onUpdateNote = { [weak self] updatedNode in
                 self?.viewModel.updateNode(updatedNode) // Cập nhật ghi chú

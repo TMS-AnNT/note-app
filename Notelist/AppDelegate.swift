@@ -15,24 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        let config = Realm.Configuration(
-                    schemaVersion: 2, // Increment this for each change to your model
-                    migrationBlock: { migration, oldSchemaVersion in
-                        if oldSchemaVersion < 2 {
-                            // Perform the migration (e.g., set default values for new properties)
-                            migration.enumerateObjects(ofType: NodeModelRealm.className()) { oldObject, newObject in
-                                newObject?["color"] = "default" // Set default color for new property
-                            }
-                        }
-                    }
-                )
-                
-                // Set the configuration globally
-                Realm.Configuration.defaultConfiguration = config
-                
-                // Initialize Realm
-                _ = try! Realm()
+        // Override point for customization after application launch
+        let config = Realm.Configuration(schemaVersion: 1) // Đặt schema version về 1 (mới)
+        Realm.Configuration.defaultConfiguration = config
+        
+        // Initialize Realm
+        _ = try! Realm() 
                 // Khởi tạo window
                window = UIWindow(frame: UIScreen.main.bounds)
                
@@ -60,3 +48,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+import RealmSwift
+
+func resetRealm() {
+    let realmURL = Realm.Configuration.defaultConfiguration.fileURL
+    let realmURLs = [
+        realmURL,
+        realmURL?.appendingPathExtension("lock"),
+        realmURL?.appendingPathExtension("note"),
+        realmURL?.appendingPathExtension("management")
+    ]
+    
+    for url in realmURLs {
+        if let url = url {
+            do {
+                try FileManager.default.removeItem(at: url)
+                print("Deleted Realm file at: \(url)")
+            } catch {
+                print("Failed to delete Realm file: \(error)")
+            }
+        }
+    }
+}
