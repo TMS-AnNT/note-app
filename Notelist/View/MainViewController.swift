@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
     internal var nodeManager = NodeManager()
     
     internal var searchTextField: UITextField!
-    internal var blurEffectView: UIVisualEffectView!
+    internal var blurEffectView: UIVisualEffectView!    
     // MARK: - Outlets
     @IBOutlet weak var ButtonAdd: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!

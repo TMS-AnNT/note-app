@@ -27,7 +27,6 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
         let width = collectionView.frame.width / 2 - 10
         let content = viewModel.nodes[indexPath.row].content
         let title = viewModel.nodes[indexPath.row].title
-
         // Kiểm tra và đảm bảo rằng chiều cao tính toán hợp lệ, tránh chiều cao vô hạn.
         let contentHeight = heightForText(content, width: width)
         let titleHeight = heightForText(title, width: width)
@@ -45,7 +44,6 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
             options: .usesLineFragmentOrigin,
             context: nil
         )
-        
         // Tránh trả về chiều cao vô hạn
         return ceil(boundingBox.height)
     }

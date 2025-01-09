@@ -39,7 +39,7 @@ class WaveformView: UIView {
         if wavePoints.count > maxWavePoints {
             wavePoints.removeFirst()
         }
-        print("this is wavePoints\(wavePoints)")
+       // print("this is wavePoints\(wavePoints)")
         // Redraw the waveform
         setNeedsDisplay()
     }

@@ -18,7 +18,7 @@ class NodeManager {
         let node = NodeModelRealm()
         node.title = title
         node.content = content
-        
+                
         node.color = color ?? "#000000"
         
         // Add to Realm
@@ -45,7 +45,7 @@ class NodeManager {
     }
 
     // MARK: - Update Node
-    func updateNode(id: String, newTitle: String, newContent: String,color: String ) {
+    func updateNode(id: String, newTitle: String, newContent: String,color: String, newAudioFile: [String] ) {
         guard let node = getNodeById(id: id) else {
             print("Node with ID \(id) not found")
             return
@@ -56,6 +56,8 @@ class NodeManager {
                 node.title = newTitle
                 node.content = newContent
                 node.color = color
+                node.audioFilePaths.removeAll()
+                node.audioFilePaths.append(objectsIn: newAudioFile)
             }
             print("Node updated successfully")
         } catch {

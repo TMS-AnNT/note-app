@@ -33,25 +33,17 @@ class MainViewModel {
     }
 
     func updateNode(_ updatedNode: NodeModelRealm) {
-        nodeManager.updateNode(id: updatedNode.id, newTitle: updatedNode.title, newContent: updatedNode.content, color: updatedNode.color)
+        nodeManager.updateNode(id: updatedNode.id, newTitle: updatedNode.title, newContent: updatedNode.content, color: updatedNode.color,newAudioFile: [])
 
-           if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
-               nodes[index] = updatedNode
-           }
-
-           // update file audio if necessary
-           if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
-               let currentNode = nodes[index]
-               currentNode.audioFilePaths.removeAll()
-               currentNode.audioFilePaths.append(objectsIn: updatedNode.audioFilePaths)
-           }
+        if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
+            nodes[index] = updatedNode
+        }
     }
 
     func deleteNode(at index: Int) {
         let nodeToDelete = nodes[index]
         nodeManager.deleteNode(id: nodeToDelete.id)
         nodes.remove(at: index)
-     
     }
     func performSearch(query: String) {
         // Cập nhật lại allNodes sau khi thay đổi dữ liệu

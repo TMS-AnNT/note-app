@@ -8,8 +8,7 @@
 import UIKit
 import RealmSwift
 import AVFoundation
-class AddNoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class AddNoteViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ColorWell: UIColorWell!
     @IBOutlet weak var TxtContent: UITextView!
@@ -20,7 +19,6 @@ class AddNoteViewController: UIViewController, UITableViewDelegate, UITableViewD
     var audioPlayer: AVAudioPlayer?
 
     var viewModel: AddNoteViewModel!
-    
     var onUpdateNote: ((_ updatedNote: NodeModelRealm) -> Void)?
     var existingNote: NodeModelRealm?
     @IBAction func btnAudioAction(_ sender: Any) {
@@ -28,10 +26,19 @@ class AddNoteViewController: UIViewController, UITableViewDelegate, UITableViewD
         let actionSheet = UIAlertController(title: "Choose an option", message: nil, preferredStyle: .actionSheet)
              
              actionSheet.addAction(UIAlertAction(title: "Choose Audio", style: .default, handler: { _ in
-               //  self.showRecordingStartedAlert()
                  let storyboard = UIStoryboard(name: "Main", bundle: nil)
                  if let audioRecordingVC = storyboard.instantiateViewController(withIdentifier: "AudioRecordingViewController") as? AudioRecordingViewController {
+                     
                      self.navigationController?.pushViewController(audioRecordingVC, animated: true)
+                     audioRecordingVC.onCompleteRecording = { [weak self] in
+                                  self?.viewModel.fetchAudioFiles()
+                                  self?.tableView.reloadData()
+                              }
+                     audioRecordingVC.onFinishRecording = { [weak self] url in
+                         print("day laf URl moi tra ve\(url)")
+                         self?.viewModel.AddURLTemp(url)
+                     }
+                     
                  }
 
                  
@@ -49,7 +56,7 @@ class AddNoteViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.onFetchAudioFiles = { [weak self] in
-            self?.tableView.reloadData() // Reload table with new audio files
+            self?.tableView.reloadData()
         }
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -108,6 +115,46 @@ class AddNoteViewController: UIViewController, UITableViewDelegate, UITableViewD
                navigationController?.popViewController(animated: true)
 
     }
+
+    @objc func imageTapped() {
+        navigationController?.popViewController(animated: true)
+        
+    }
+    // Hàm xử lý khi chọn "Image"
+    func chooseImage() {
+        // Hiển thị UIImagePickerController để chọn hình ảnh
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.mediaTypes = ["public.image"] // Chỉ chọn hình ảnh
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func configUI(){
+        UIImageBack.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        UIImageBack.addGestureRecognizer(tapGesture)
+    }
+ 
+}
+extension AddNoteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            print("Selected image: \(selectedImage)")
+            // Handle image (save to Realm or display it)
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+
+
+extension AddNoteViewController: UITableViewDelegate, UITableViewDataSource{
     // MARK: UITableView DataSource Methods
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -154,41 +201,5 @@ class AddNoteViewController: UIViewController, UITableViewDelegate, UITableViewD
         } catch let error as NSError {
             print("Error playing audio: \(error.localizedDescription), code: \(error.code)")
         }
-    }
-
-    @objc func imageTapped() {
-        navigationController?.popViewController(animated: true)
-        
-    }
-    
-   
-    // Hàm xử lý khi chọn "Image"
-    func chooseImage() {
-        // Hiển thị UIImagePickerController để chọn hình ảnh
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        imagePicker.mediaTypes = ["public.image"] // Chỉ chọn hình ảnh
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    private func configUI(){
-        UIImageBack.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        UIImageBack.addGestureRecognizer(tapGesture)
-    }
- 
-}
-extension AddNoteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage {
-            print("Selected image: \(selectedImage)")
-            // Handle image (save to Realm or display it)
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
     }
 }

@@ -497,10 +497,9 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JIG-Vk-NaT">
-                                <rect key="frame" x="20" y="225.33333333333337" width="353" height="192.66666666666663"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incidid" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JIG-Vk-NaT">
+                                <rect key="frame" x="20" y="225.33333333333334" width="353" height="92.666666666666657"/>
                                 <color key="backgroundColor" red="0.84964883209999997" green="0.81343230300000002" blue="0.72667405210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -552,7 +551,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SyR-1R-Tcq" customClass="AudioCell">
-                                <rect key="frame" x="20" y="463" width="357" height="280"/>
+                                <rect key="frame" x="20" y="338" width="357" height="205"/>
                                 <color key="backgroundColor" red="0.84964883209999997" green="0.81343230300000002" blue="0.72667405210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="separatorColor" red="0.84964883209999997" green="0.81343230300000002" blue="0.72667405210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.84964883209999997" green="0.81343230300000002" blue="0.72667405210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -612,7 +611,7 @@
                             <constraint firstItem="SyR-1R-Tcq" firstAttribute="leading" secondItem="uoN-Ml-DeN" secondAttribute="leading" id="cQw-Jg-Uz4"/>
                             <constraint firstItem="hW9-W9-VkZ" firstAttribute="trailing" secondItem="YkY-Ya-6y4" secondAttribute="trailing" constant="20" id="d0t-02-flD"/>
                             <constraint firstItem="aKj-jh-Jsl" firstAttribute="leading" secondItem="hW9-W9-VkZ" secondAttribute="leading" constant="20" id="dqY-aa-AGy"/>
-                            <constraint firstItem="SyR-1R-Tcq" firstAttribute="top" secondItem="JIG-Vk-NaT" secondAttribute="bottom" constant="45" id="gWP-3t-4Hg"/>
+                            <constraint firstItem="SyR-1R-Tcq" firstAttribute="top" secondItem="JIG-Vk-NaT" secondAttribute="bottom" constant="20" id="gWP-3t-4Hg"/>
                             <constraint firstItem="hW9-W9-VkZ" firstAttribute="bottom" secondItem="YkY-Ya-6y4" secondAttribute="bottom" constant="35" id="ghi-jX-A8M"/>
                             <constraint firstItem="JIG-Vk-NaT" firstAttribute="centerX" secondItem="HkL-vs-w1T" secondAttribute="centerX" id="h03-2B-54J"/>
                             <constraint firstItem="lPe-RW-Lnq" firstAttribute="leading" secondItem="uoN-Ml-DeN" secondAttribute="leading" id="ogh-I0-Ohw"/>
@@ -621,8 +620,8 @@
                             <constraint firstItem="hW9-W9-VkZ" firstAttribute="trailing" secondItem="aKj-jh-Jsl" secondAttribute="trailing" constant="20" id="qKW-f1-aoG"/>
                             <constraint firstItem="lPe-RW-Lnq" firstAttribute="top" secondItem="A1R-tK-i6w" secondAttribute="bottom" constant="44.666666666666671" id="qzr-mQ-1Fj"/>
                             <constraint firstItem="hW9-W9-VkZ" firstAttribute="trailing" secondItem="lPe-RW-Lnq" secondAttribute="trailing" constant="20" id="sNg-4d-JKl"/>
-                            <constraint firstItem="hW9-W9-VkZ" firstAttribute="bottom" secondItem="JIG-Vk-NaT" secondAttribute="bottom" constant="400" id="vNF-3a-Aos"/>
-                            <constraint firstItem="YkY-Ya-6y4" firstAttribute="top" secondItem="SyR-1R-Tcq" secondAttribute="bottom" id="vcF-lC-qwS"/>
+                            <constraint firstItem="hW9-W9-VkZ" firstAttribute="bottom" secondItem="JIG-Vk-NaT" secondAttribute="bottom" constant="500" id="vNF-3a-Aos"/>
+                            <constraint firstItem="YkY-Ya-6y4" firstAttribute="top" secondItem="SyR-1R-Tcq" secondAttribute="bottom" constant="200" id="vcF-lC-qwS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kjN-9N-epJ"/>
