@@ -16,10 +16,10 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
     private var time: Timer?
     var decibelLevel: Float = 0.0
     private var elapsedTime: Int = 0
-    var tickCount:Int = 0 //count the variable
+    var tickCount:Int = 0
     var fileName: String?
     private var audioFileURL: URL?
-
+    
     var onDecibelUpdate: ((Float) -> Void)?
     var isRecording: Bool {
         audioRecorder?.isRecording ?? false
@@ -33,11 +33,10 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
             try audioSession.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
             try audioSession.setActive(true)
             
-            // Tạo một file mới nếu chưa có
             if self.audioFileURL == nil {
                 fileName = "audio_\(UUID().uuidString).m4a"
                 guard let fileName = fileName else { return }
-
+                
                 let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                 self.audioFileURL = documentsPath.appendingPathComponent(fileName)
             }
@@ -52,7 +51,7 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
                 AVSampleRateKey: 44100.0,
                 AVNumberOfChannelsKey: 1,
                 AVEncoderAudioQualityKey:
-                AVAudioQuality.high.rawValue
+                    AVAudioQuality.high.rawValue
             ]
             
             audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
@@ -88,14 +87,14 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
                 
                 self.delegate?.didUpdateDecibelLevel(decibel: decibel)
             }
-                self.tickCount += 1
-                
-                // Mỗi 10 lần (0.1 * 10 = 1 giây), tăng elapsedTime
-                if self.tickCount % 10 == 0 {
-                    self.elapsedTime += 1
-                    self.updateElapsedTimeDisplay()
-                    print("1 giây đã trôi qua")
-                }
+            self.tickCount += 1
+            
+            // Mỗi 10 lần (0.1 * 10 = 1 giây), tăng elapsedTime
+            if self.tickCount % 10 == 0 {
+                self.elapsedTime += 1
+                self.updateElapsedTimeDisplay()
+                print("1 giây đã trôi qua")
+            }
         }
     }
     

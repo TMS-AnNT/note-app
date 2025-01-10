@@ -7,32 +7,92 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E5EC3F04-AB79-45F3-A5E4-080B065E8E14"
+            uuid = "5E324931-75C7-4490-BC97-BD2659EE0AFF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Notelist/View/MainViewController.swift"
+            filePath = "Notelist/ViewModel/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "BtnAdd(_:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "updateNode(_:_:_:_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5E324931-75C7-4490-BC97-BD2659EE0AFF - a6f7155522072ee9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Notelist.MainViewModel.updateNode(Swift.String, Swift.String, Swift.String, Swift.Optional&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Notelist.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caoductin/NoteApp/Notelist/Notelist/ViewModel/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+               <Location
+                  uuid = "5E324931-75C7-4490-BC97-BD2659EE0AFF - a6f7155522072ee9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Notelist.MainViewModel.updateNode(Swift.String, Swift.String, Swift.String, Swift.Optional&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Notelist.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caoductin/NoteApp/Notelist/Notelist/ViewModel/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+               <Location
+                  uuid = "5E324931-75C7-4490-BC97-BD2659EE0AFF - 51014e2575fb6af7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Notelist.NodeModelRealm) -&gt; Swift.Bool in closure #1 () -&gt; () in Notelist.MainViewModel.updateNode(Swift.String, Swift.String, Swift.String, Swift.Optional&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Notelist.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caoductin/NoteApp/Notelist/Notelist/ViewModel/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59455AE9-FFDA-4DA1-851B-340A23BC2A21"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Notelist/ViewModel/MainViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "updateNode(_:_:_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2EA36038-911C-48B3-AABB-CA0A73DECB52"
+            uuid = "1622A78E-0D9E-4D48-830C-C5F31312BDE5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Notelist/View/MainViewController.swift"
+            filePath = "Notelist/View/AddNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "BtnAdd(_:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "imageTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

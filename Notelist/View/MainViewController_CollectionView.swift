@@ -27,7 +27,6 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
         let width = collectionView.frame.width / 2 - 10
         let content = viewModel.nodes[indexPath.row].content
         let title = viewModel.nodes[indexPath.row].title
-        // Kiểm tra và đảm bảo rằng chiều cao tính toán hợp lệ, tránh chiều cao vô hạn.
         let contentHeight = heightForText(content, width: width)
         let titleHeight = heightForText(title, width: width)
         let totalHeight = contentHeight + titleHeight + 50
@@ -52,14 +51,13 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
 extension MainViewController: UICollectionViewDelegate {
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let selectedNode = viewModel.nodes[indexPath.row]
-            
             // Khởi tạo AddNoteViewController
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
                 addNoteVC.existingNote = selectedNode
                 addNoteVC.modalPresentationStyle = .fullScreen
-                addNoteVC.onUpdateNote = { [weak self] updatedNode in
-                    self?.viewModel.updateNode(updatedNode)
+                addNoteVC.onUpdateNote = { [weak self] id, title ,content, color, audioFileName in
+                    self?.viewModel.updateNode(id,title,content,color, audioFileName)
                 }
 
                 navigationController?.pushViewController(addNoteVC, animated: true)

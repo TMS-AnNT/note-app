@@ -24,7 +24,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var ButtonAdd: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // Các thuộc tính Combine
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -123,12 +122,9 @@ class MainViewController: UIViewController {
             print("Navigating to AddNoteViewController")
             addNoteVC.onAddNote = { [weak self] title, content , color , fileNameArr in
                 self?.viewModel.addNode(title: title, content: content,color: color,audioFiles: fileNameArr ?? []) // Thêm ghi chú mới
-                self?.collectionView.reloadData()
-                print("liêu jcos reaload colection View")
             }
-            addNoteVC.onUpdateNote = { [weak self] updatedNode in
-                self?.viewModel.updateNode(updatedNode) // Cập nhật ghi chú
-                self?.collectionView.reloadData()
+            addNoteVC.onUpdateNote = { [weak self] id, title, content ,color , audioFileName in
+                self?.viewModel.updateNode(id,title,content,color,audioFileName) // Cập nhật ghi chú
             }
             navigationController?.pushViewController(addNoteVC, animated: true)
         } else {

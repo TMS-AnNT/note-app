@@ -10,29 +10,39 @@ import RealmSwift
 
 class AddNoteViewModel{
     var audioFiles: [URL] = [] // List of audio files
-    var audioFilesTempt: [URL] = []
     private var FileAudioNameTempt:[String] = []
+    private var FileAudioNameUpdate: [String] = []
     var onFetchAudioFiles: (() -> Void)?
     
     var existingNote: NodeModelRealm?
+    
     init(existingNote: NodeModelRealm?) {
         self.existingNote = existingNote
-       // fetchAudioFiles()
-       fetchAudioFilesByNoteID()
+        fetchAudioFiles()
+       // fetchAudioFilesByNoteID()
     }
-    // Fetch các file audio theo NoteID
+    // MARK: Fetch các file audio theo NoteID
     func fetchAudioFilesByNoteID() {
-        guard let existingNote = existingNote else { return }
-        // Lấy đường dẫn đến thư mục Documents của ứng dụng
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        
         audioFiles.removeAll()
+        
+        FileAudioNameUpdate.removeAll()
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
-        for fileName in existingNote.audioFilePaths {
+        for fileName in FileAudioNameTempt{
             let fileURL = documentsDirectory.appendingPathComponent(fileName)
             audioFiles.append(fileURL)
         }
+        FileAudioNameUpdate.append( contentsOf: FileAudioNameTempt )
         
+        guard let existingNote = existingNote else { return }
+        FileAudioNameUpdate.append( contentsOf: existingNote.audioFilePaths )
+        
+        for fileName in existingNote.audioFilePaths {
+            let fileURL = documentsDirectory.appendingPathComponent( fileName )
+            audioFiles.append( fileURL )
+            
+        }
         onFetchAudioFiles?()
     }
     func fetchAudioFiles() {
@@ -40,29 +50,30 @@ class AddNoteViewModel{
         do {
             let files = try FileManager.default.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil)
             audioFiles = files.filter { $0.pathExtension == "m4a" }
-            onFetchAudioFiles?() // Notify the view controller to update the UI
+            onFetchAudioFiles?()
         } catch {
             print("Failed to fetch audio files: \(error.localizedDescription)")
         }
     }
     func deleteAudioFile(at index: Int) {
         let audioFile = audioFiles[index]
+        print("this is audio file\(audioFile.lastPathComponent)")
+        let fileName = audioFile.lastPathComponent
         guard let existingNote = existingNote else { return }
         
-        // Tìm vị trí của đường dẫn file trong danh sách audioFilePaths của Realm
-        if let fileIndex = existingNote.audioFilePaths.firstIndex(of: audioFile.absoluteString) {
+        if let fileIndex = existingNote.audioFilePaths.firstIndex(of: fileName) {
             do {
                 let realm = try Realm()
                 try realm.write {
-                    existingNote.audioFilePaths.remove(at: fileIndex) // Xóa đường dẫn trong Realm
+                    // Remove the file reference from Realm
+                    existingNote.audioFilePaths.remove(at: fileIndex)
                 }
-                print("Complete to delete in Realm")
+                print("Successfully deleted reference in Realm")
             } catch {
                 print("Failed to delete audio file path in Realm: \(error.localizedDescription)")
             }
         }
         
-        // Chuẩn hóa URL (nếu có ký tự dư thừa)
         let filePath = audioFile.absoluteString.replacingOccurrences(of: "file://", with: "")
         
         // Xóa file thực tế khỏi hệ thống tệp
@@ -76,7 +87,35 @@ class AddNoteViewModel{
         }
     }
 
+    func deleteAllDuplicateAudioFiles() {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        
+        guard !FileAudioNameTempt.isEmpty else {
+               print("FileAudioNameTempt is empty, no files to delete.")
+               return
+           }
+        for fileName in FileAudioNameTempt {
+            let fileURL = documentsDirectory.appendingPathComponent(fileName)
+            
+            
+        
+            
+            // Xóa file thực tế khỏi hệ thống tệp
+            do {
+                try FileManager.default.removeItem(at: fileURL)
+                print("Successfully deleted file: \(fileName)")
+            } catch {
+                print("Failed to delete file from file system: \(error.localizedDescription)")
+            }
+        }
+        
+        audioFiles.removeAll { fileURL in
+            FileAudioNameTempt.contains(fileURL.lastPathComponent)
+        }
+        
+    }
 
+    
     func AddFileNameTempt(_ fileName: String){
         FileAudioNameTempt.append(fileName)
     }
@@ -88,17 +127,12 @@ class AddNoteViewModel{
         }
     }
     
-    func getAllURLs() -> [URL] {
-        return audioFiles
-    }
-    
-    func convertAudioFileURLsToStrings() -> [String] {
-        return audioFilesTempt.map { $0.absoluteString }
-    }
-    
     func getAudioFileTemp() -> [String]{
         return FileAudioNameTempt
     }
-
+    func getFileNameToUpdate()->[String]{
+        return FileAudioNameUpdate
+    }
+    
 }
 

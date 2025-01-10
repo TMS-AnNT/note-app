@@ -18,11 +18,8 @@ class WaveformView: UIView {
         
         // Clear the previous waveform
         context.clear(rect)
-        
-        // Set the bar color
         context.setFillColor(UIColor.red.cgColor)
         
-        // Calculate the width of each bar and draw them
         for (i, point) in wavePoints.enumerated() {
             let barHeight = point * rect.height // Scale height based on the power level
             let xPosition = CGFloat(i) * (barWidth + barSpacing)
@@ -39,8 +36,6 @@ class WaveformView: UIView {
         if wavePoints.count > maxWavePoints {
             wavePoints.removeFirst()
         }
-       // print("this is wavePoints\(wavePoints)")
-        // Redraw the waveform
         setNeedsDisplay()
     }
 }

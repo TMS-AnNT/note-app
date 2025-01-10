@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 import AVFoundation
 class AddNoteViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -18,7 +17,7 @@ class AddNoteViewController: UIViewController {
     var onAddNote: ((String , String,String,[String]?) -> Void)?
     var audioPlayer: AVAudioPlayer?
     var viewModel: AddNoteViewModel!
-    var onUpdateNote: ((_ updatedNote: NodeModelRealm) -> Void)?
+    var onUpdateNote: ((_ id: String,_ title: String,_ content: String,_ color: String,_ audioFileName: [String]) -> Void)?
     var existingNote: NodeModelRealm?
     @IBAction func btnAudioAction(_ sender: Any) {
         
@@ -30,7 +29,7 @@ class AddNoteViewController: UIViewController {
 
                      self.navigationController?.pushViewController(audioRecordingVC, animated: true)
                      audioRecordingVC.onCompleteRecording = { [weak self] in
-                                  self?.viewModel.fetchAudioFiles()
+                                self?.viewModel.fetchAudioFilesByNoteID()
                                   self?.tableView.reloadData()
                               }
                      audioRecordingVC.onFinishRecording = { [weak self] fileName in
@@ -71,7 +70,7 @@ class AddNoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        viewModel = AddNoteViewModel(existingNote: existingNote)
+        viewModel = AddNoteViewModel(existingNote: existingNote)//call init funciton
         viewModel.onFetchAudioFiles = { [weak self] in
             self?.tableView.reloadData() // Reload table with new audio files
         }
@@ -95,21 +94,9 @@ class AddNoteViewController: UIViewController {
                    }
                    let selectedColor = ColorWell.selectedColor ?? UIColor.yellow
                   if let existingNote = existingNote {
-                      // Nếu đang chỉnh sửa ghi chú
-                      do {
-                          let realm = try Realm()
-                          try realm.write {
-                              existingNote.title = title
-                              existingNote.content = content
-                              existingNote.color = selectedColor.toHex()
-                          }
-                          // Gọi closure để cập nhật giao diện
-                          onUpdateNote?(existingNote)
-                      } catch {
-                          print("Error updating note: \(error.localizedDescription)")
-                      }
+                          onUpdateNote?(existingNote.id,existingNote.title,existingNote.content,existingNote.color, viewModel.getFileNameToUpdate())
+                    
                   } else {
-                      // Nếu thêm mới ghi chú
                       onAddNote?(title, content,selectedColor.toHex(), viewModel.getAudioFileTemp())
                   }
                navigationController?.popViewController(animated: true)
@@ -117,9 +104,10 @@ class AddNoteViewController: UIViewController {
     }
 
     @objc func imageTapped() {
+        viewModel.deleteAllDuplicateAudioFiles()
         navigationController?.popViewController(animated: true)
     }
-    // Hàm xử lý khi chọn "Image"
+    
     func chooseImage() {
         // Hiển thị UIImagePickerController để chọn hình ảnh
         let imagePicker = UIImagePickerController()
@@ -172,11 +160,7 @@ extension AddNoteViewController: UITableViewDelegate, UITableViewDataSource{
         let selectedFileURL = viewModel.audioFiles[indexPath.row]
         print("this covert tệp tồn tại \(selectedFileURL.path)")
         let absoluteString = selectedFileURL.absoluteString
-        print("convert it to String\(absoluteString)")
-        print("convert it to URL\(URL(string: absoluteString))")
-//        let url = URL(fileURLWithPath: filePath.replacingOccurrences(of: "file:/", with: "file:///"))
-//        print("this is url change from url to filePath\(url)")
-     
+  
         print("Selected file URL: \(selectedFileURL)")  // In ra để kiểm tra URL
         
         do {
