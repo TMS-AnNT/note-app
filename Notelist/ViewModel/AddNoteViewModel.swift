@@ -59,14 +59,13 @@ class AddNoteViewModel{
         let audioFile = audioFiles[index]
         print("this is audio file\(audioFile.lastPathComponent)")
         let fileName = audioFile.lastPathComponent
-        guard let existingNote = existingNote else { return }
         
-        if let fileIndex = existingNote.audioFilePaths.firstIndex(of: fileName) {
+        if let fileIndex = existingNote?.audioFilePaths.firstIndex(of: fileName) {
             do {
                 let realm = try Realm()
                 try realm.write {
                     // Remove the file reference from Realm
-                    existingNote.audioFilePaths.remove(at: fileIndex)
+                    existingNote?.audioFilePaths.remove(at: fileIndex)
                 }
                 print("Successfully deleted reference in Realm")
             } catch {
@@ -78,10 +77,10 @@ class AddNoteViewModel{
         
         // Xóa file thực tế khỏi hệ thống tệp
         do {
-            let fileURL = URL(fileURLWithPath: filePath) // Chuyển thành URL hợp lệ
+            let fileURL = URL(fileURLWithPath: filePath)
             try FileManager.default.removeItem(at: fileURL)
             audioFiles.remove(at: index)
-            onFetchAudioFiles?() // Cập nhật lại UI sau khi xóa
+            onFetchAudioFiles?()
         } catch {
             print("Failed to delete audio file from file system: \(error.localizedDescription)")
         }
