@@ -94,7 +94,7 @@ class AddNoteViewController: UIViewController {
                    }
                    let selectedColor = ColorWell.selectedColor ?? UIColor.yellow
                   if let existingNote = existingNote {
-                          onUpdateNote?(existingNote.id,existingNote.title,existingNote.content,existingNote.color, viewModel.getFileNameToUpdate())
+                      onUpdateNote?(existingNote.id,title,content,selectedColor.toHex(), viewModel.getFileNameToUpdate())
                     
                   } else {
                       onAddNote?(title, content,selectedColor.toHex(), viewModel.getAudioFileTemp())

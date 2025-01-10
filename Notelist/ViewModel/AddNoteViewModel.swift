@@ -18,8 +18,8 @@ class AddNoteViewModel{
     
     init(existingNote: NodeModelRealm?) {
         self.existingNote = existingNote
-        fetchAudioFiles()
-       // fetchAudioFilesByNoteID()
+       // fetchAudioFiles()
+        fetchAudioFilesByNoteID()
     }
     // MARK: Fetch các file audio theo NoteID
     func fetchAudioFilesByNoteID() {

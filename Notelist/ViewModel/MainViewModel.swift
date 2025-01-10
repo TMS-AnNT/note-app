@@ -76,8 +76,6 @@ class MainViewModel {
                 node.content.localizedCaseInsensitiveContains(query)
             }
         }
-        
-        //  delegate?.didUpdateNodes()
     }
     
     func getAllNote(){
