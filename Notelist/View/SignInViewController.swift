@@ -54,11 +54,9 @@ class SignInViewController: UIViewController {
     // Update the language based on switch status
     func updateLanguage() {
         if languageUISwitch.isOn {
-            // Set language to Vietnamese
             UserDefaults.standard.set("vi", forKey: "selectedLanguage")
             Bundle.setLanguage("vi")
         } else {
-            // Set language to English
             UserDefaults.standard.set("en", forKey: "selectedLanguage")
             Bundle.setLanguage("en")
         }

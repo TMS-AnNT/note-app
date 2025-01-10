@@ -15,7 +15,7 @@ class MainViewModel {
     
     @Published var nodes: [NodeModelRealm] = []
     private var cancellables = Set<AnyCancellable>()
-    
+
     private var allNodes: [NodeModelRealm] = []
     // MARK: - Initializer
     init(){
@@ -27,13 +27,12 @@ class MainViewModel {
           nodes = allNodes
       }
     func addNode(title: String, content: String,color: String?, audioFiles: [String]) {
-        let newNode = nodeManager.createNode(title: title, content: content,color: color ?? "#000000")
-        newNode.audioFilePaths.append(objectsIn: audioFiles)
+        let newNode = nodeManager.createNode(title: title, content: content,color: color ?? "#000000",audio: audioFiles)
         nodes.append(newNode)
+ 
     }
-
     func updateNode(_ updatedNode: NodeModelRealm) {
-        nodeManager.updateNode(id: updatedNode.id, newTitle: updatedNode.title, newContent: updatedNode.content, color: updatedNode.color,newAudioFile: [])
+        nodeManager.updateNode(id: updatedNode.id, newTitle: updatedNode.title, newContent: updatedNode.content, color: updatedNode.color,newAudioFile: Array(updatedNode.audioFilePaths))
 
         if let index = nodes.firstIndex(where: { $0.id == updatedNode.id }) {
             nodes[index] = updatedNode
@@ -59,6 +58,10 @@ class MainViewModel {
         }
         
       //  delegate?.didUpdateNodes()
+    }
+    
+    func getAllNote(){
+        debugPrint(nodes)
     }
 
 

@@ -17,6 +17,7 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
     var decibelLevel: Float = 0.0
     private var elapsedTime: Int = 0
     var tickCount:Int = 0 //count the variable
+    var fileName: String?
     private var audioFileURL: URL?
 
     var onDecibelUpdate: ((Float) -> Void)?
@@ -34,7 +35,9 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
             
             // Tạo một file mới nếu chưa có
             if self.audioFileURL == nil {
-                let fileName = "audio_\(UUID().uuidString).m4a"
+                fileName = "audio_\(UUID().uuidString).m4a"
+                guard let fileName = fileName else { return }
+
                 let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                 self.audioFileURL = documentsPath.appendingPathComponent(fileName)
             }
@@ -49,7 +52,7 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
                 AVSampleRateKey: 44100.0,
                 AVNumberOfChannelsKey: 1,
                 AVEncoderAudioQualityKey:
-                    AVAudioQuality.high.rawValue
+                AVAudioQuality.high.rawValue
             ]
             
             audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
@@ -59,7 +62,7 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
             audioRecorder?.record()
             
             delegate?.didStartRecording()
-            delegate?.didFinishRecording?(audioFileURL: fileURL)
+            delegate?.didFinishRecording(fileName: fileName!)
             startMonitoringDecibels()
             
         } catch {
@@ -101,7 +104,6 @@ class AudioRecorderController: NSObject, AVAudioRecorderDelegate {
         let seconds = elapsedTime % 60
         let formattedTime = String(format: "%02d:%02d", minutes, seconds)
         
-        // Nếu có delegate, bạn có thể gọi delegate để cập nhật UI
         delegate?.didUpdateElapsedTime(formattedTime)
     }
     

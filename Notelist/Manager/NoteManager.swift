@@ -14,13 +14,12 @@ class NodeManager {
     private let realm = try! Realm()
 
     // MARK: - Create Node
-    func createNode(title: String, content: String,color: String? = nil) -> NodeModelRealm {
+    func createNode(title: String, content: String,color: String? = nil,audio: [String]?) -> NodeModelRealm {
         let node = NodeModelRealm()
         node.title = title
         node.content = content
-                
         node.color = color ?? "#000000"
-        
+        node.audioFilePaths.append(objectsIn: audio ?? [])
         // Add to Realm
         do {
             try realm.write {

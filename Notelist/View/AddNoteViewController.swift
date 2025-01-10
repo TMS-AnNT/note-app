@@ -15,9 +15,8 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var BtnAdd: UIButton!
     @IBOutlet weak var UIImageBack: UIImageView!
-    var onAddNote: ((String , String,String) -> Void)?
+    var onAddNote: ((String , String,String,[String]?) -> Void)?
     var audioPlayer: AVAudioPlayer?
-
     var viewModel: AddNoteViewModel!
     var onUpdateNote: ((_ updatedNote: NodeModelRealm) -> Void)?
     var existingNote: NodeModelRealm?
@@ -28,19 +27,20 @@ class AddNoteViewController: UIViewController {
              actionSheet.addAction(UIAlertAction(title: "Choose Audio", style: .default, handler: { _ in
                  let storyboard = UIStoryboard(name: "Main", bundle: nil)
                  if let audioRecordingVC = storyboard.instantiateViewController(withIdentifier: "AudioRecordingViewController") as? AudioRecordingViewController {
-                     
+
                      self.navigationController?.pushViewController(audioRecordingVC, animated: true)
                      audioRecordingVC.onCompleteRecording = { [weak self] in
                                   self?.viewModel.fetchAudioFiles()
                                   self?.tableView.reloadData()
                               }
-                     audioRecordingVC.onFinishRecording = { [weak self] url in
-                         print("day laf URl moi tra ve\(url)")
-                         self?.viewModel.AddURLTemp(url)
+                     audioRecordingVC.onFinishRecording = { [weak self] fileName in
+                         print("this is file name\(fileName)")
+                         self?.viewModel.AddFileNameTempt(fileName)
+                         self?.viewModel.GetFileName()
+                       //  self?.viewModel.GetURlTempt()
                      }
                      
-                 }
-
+                                }
                  
              }))
              
@@ -110,7 +110,7 @@ class AddNoteViewController: UIViewController {
                       }
                   } else {
                       // Nếu thêm mới ghi chú
-                      onAddNote?(title, content,selectedColor.toHex())
+                      onAddNote?(title, content,selectedColor.toHex(), viewModel.getAudioFileTemp())
                   }
                navigationController?.popViewController(animated: true)
 
@@ -118,7 +118,6 @@ class AddNoteViewController: UIViewController {
 
     @objc func imageTapped() {
         navigationController?.popViewController(animated: true)
-        
     }
     // Hàm xử lý khi chọn "Image"
     func chooseImage() {
@@ -171,6 +170,13 @@ extension AddNoteViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedFileURL = viewModel.audioFiles[indexPath.row]
+        print("this covert tệp tồn tại \(selectedFileURL.path)")
+        let absoluteString = selectedFileURL.absoluteString
+        print("convert it to String\(absoluteString)")
+        print("convert it to URL\(URL(string: absoluteString))")
+//        let url = URL(fileURLWithPath: filePath.replacingOccurrences(of: "file:/", with: "file:///"))
+//        print("this is url change from url to filePath\(url)")
+     
         print("Selected file URL: \(selectedFileURL)")  // In ra để kiểm tra URL
         
         do {
@@ -179,6 +185,11 @@ extension AddNoteViewController: UITableViewDelegate, UITableViewDataSource{
                 audioPlayer?.stop()
             }
             
+            if FileManager.default.fileExists(atPath: selectedFileURL.path) {
+                print("Tệp tồn tại.\(selectedFileURL.path)")
+            } else {
+                print("Tệp không tồn tại tại đường dẫn: \(selectedFileURL.path)")
+            }
             audioPlayer = try AVAudioPlayer(contentsOf: selectedFileURL)
             audioPlayer?.play()
             

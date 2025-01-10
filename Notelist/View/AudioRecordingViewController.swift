@@ -7,7 +7,7 @@ class AudioRecordingViewController: UIViewController {
     var recordingWaveView: WaveformView!
     private let viewModel = AudioRecorderController()
     var onCompleteRecording:(()->())?
-    var onFinishRecording: ((URL) -> Void)?
+    var onFinishRecording: ((String) -> Void)?
     
     
     @IBOutlet weak var WaveSoundUIView: UIView!
@@ -63,6 +63,10 @@ class AudioRecordingViewController: UIViewController {
 }
 
 extension AudioRecordingViewController: AudioRecorderDelegate{
+    func didFinishRecording(fileName: String) {
+        self.onFinishRecording?(fileName)
+    }
+    
     func didUpdateElapsedTime(_ time: String) {
         TimerLabel.text = time
     }
@@ -85,8 +89,8 @@ extension AudioRecordingViewController: AudioRecorderDelegate{
         }
     }
     //MARK: this function is get url from viewModel and pass it parentView
-    func didFinishRecording(audioFileURL: URL) {
-        self.onFinishRecording?(audioFileURL)
-    }
+//    func didFinishRecording() {
+//        self.onFinishRecording?(audioFileURL)
+//    }
 }
 

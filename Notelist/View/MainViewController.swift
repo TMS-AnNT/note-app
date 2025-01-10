@@ -121,11 +121,14 @@ class MainViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let addNoteVC = storyboard.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
             print("Navigating to AddNoteViewController")
-            addNoteVC.onAddNote = { [weak self] title, content , color in
-                self?.viewModel.addNode(title: title, content: content,color: color,audioFiles: []) // Thêm ghi chú mới
+            addNoteVC.onAddNote = { [weak self] title, content , color , fileNameArr in
+                self?.viewModel.addNode(title: title, content: content,color: color,audioFiles: fileNameArr ?? []) // Thêm ghi chú mới
+                self?.collectionView.reloadData()
+                print("liêu jcos reaload colection View")
             }
             addNoteVC.onUpdateNote = { [weak self] updatedNode in
                 self?.viewModel.updateNode(updatedNode) // Cập nhật ghi chú
+                self?.collectionView.reloadData()
             }
             navigationController?.pushViewController(addNoteVC, animated: true)
         } else {
@@ -136,8 +139,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewModelDelegate {
     func didUpdateNodes() {
-       // Tải lại dữ liệu từ viewModel
-        collectionView.reloadData()  // Làm mới giao diện
+        collectionView.reloadData()
     }
 }
 
@@ -147,7 +149,7 @@ extension MainViewController: UITextFieldDelegate {
         let currentText = textField.text ?? ""
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
         
-        viewModel.performSearch(query: updatedText) // Gọi ViewModel tìm kiếm
+        viewModel.performSearch(query: updatedText)
         return true
 
     }

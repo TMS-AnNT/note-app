@@ -12,5 +12,5 @@ import UIKit
     func didStopRecording()
     func didUpdateDecibelLevel( decibel: Float)
      func didUpdateElapsedTime(_ time: String)
-    @objc optional func didFinishRecording(audioFileURL: URL)
+     func didFinishRecording(fileName: String)
 }
